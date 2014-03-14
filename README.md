@@ -186,7 +186,11 @@ using. Then look at the list below to see if the chipset is included.
     * Extract kernel archive
         * `sudo tar -zxf kernel.tar.gz`
     * Extract modules and firmware (assumes SD mounted as /media/linuxroot)
+        * `sudo rm -Rf /media/linuxroot/lib/firmware`
+        * `sudo rm -Rf /media/linuxroot/lib/modules`
         * `sudo tar -pzxf mod-fw.tar.gz -C /`
+        * `sudo chown root:root -R /media/linuxroot/lib/firmware`
+        * `sudo chown root:root -R /media/linuxroot/lib/modules`
         * `sync`
         * Eject SD card from PC
 * Flash (assumes you have Finless or other ROM already installed)

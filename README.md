@@ -134,8 +134,14 @@ using. Then look at the list below to see if the chipset is included.
         * Select the geographic area in which you live
         * Select the city or region corresponding to your time zone
 10. Add useful packages
-    * `apt-get -y install sudo dhcp3-client udev netbase ifupdown iproute openssh-server iputils-ping wget net-tools wireless-tools wpasupplicant ntpdate ntp less tzdata console-tools console-common module-init-tools`
-        * Select keymap from full list
+    * 12.04
+        * `apt-get -y install sudo dhcp3-client udev netbase ifupdown iproute openssh-server iputils-ping wget net-tools wireless-tools wpasupplicant ntpdate ntp less tzdata console-tools console-common module-init-tools`
+            * Select keymap from full list
+    * 14.04
+        * `apt-get -y install sudo isc-dhcp-client udev netbase ifupdown iproute openssh-server iputils-ping wget net-tools wireless-tools wpasupplicant ntpdate ntp less tzdata console-common module-init-tools`
+            * Country of origin for the keyboard
+            * Keyboard layout
+            * Select keymap from full list
     * `apt-get -y upgrade`
 11. Configure networking
     * `echo "bcm40181" >> /etc/modules`

@@ -60,6 +60,7 @@ using. Then look at the list below to see if the chipset is included.
     * 8188eu
     * 8192 series (B/G/N up to 300 MB/sec)
 * Zydas 1211
+**This is based on Alok Sihna's 3.0.8 kernel**
 
 ### Requirements
 * Ubuntu 12.04 desktop (I used a VirtualBox VM)
@@ -73,7 +74,7 @@ using. Then look at the list below to see if the chipset is included.
 * A MicroSD of at least 4GB in size to hold the linuxroot filesystem.
 * An internet connection.
 
-### Create root filesystem
+### Create Ubuntu root filesystem
 1. Install packages
     * `sudo su -`
     * `apt-get -y install qemu-user-static binfmt-support debootstrap`
@@ -94,8 +95,11 @@ using. Then look at the list below to see if the chipset is included.
     * `mkdir /mnt/tmp`
     * `mount /dev/sdb1 /mnt/tmp`
     * `rm -rf /mnt/tmp/lost+found`
-4. Install Ubuntu 12.04
-    * `qemu-debootstrap --verbose --variant=minbase --arch=armhf --include=nano precise /mnt/tmp http://ports.ubuntu.com/ubuntu-ports > install.log 2>&1`
+4. Install Ubuntu
+    * 12.04
+        * `qemu-debootstrap --verbose --variant=minbase --arch=armhf --include=nano precise /mnt/tmp http://ports.ubuntu.com/ubuntu-ports > install.log 2>&1`
+    * 14.04
+        * `qemu-debootstrap --verbose --variant=minbase --arch=armhf --include=nano trusty /mnt/tmp http://ports.ubuntu.com/ubuntu-ports > install.log 2>&1`
     * Check install.log for **I: Base system installed successfully.**
 5. Make backup of minbase
     * `tar -pzcf minbase.tar.gz -C /mnt/tmp .`
@@ -107,12 +111,20 @@ using. Then look at the list below to see if the chipset is included.
     * `chroot /mnt/tmp`
 7. Add apt-sources
     * `nano /etc/apt/sources.list`
-    <pre><code>deb http://ports.ubuntu.com/ubuntu-ports/ precise main restricted universe multiverse
-    deb-src http://ports.ubuntu.com/ubuntu-ports/ precise main restricted universe multiverse
-    deb http://ports.ubuntu.com/ubuntu-ports/ precise-updates main restricted universe multiverse
-    deb-src http://ports.ubuntu.com/ubuntu-ports/ precise-updates main restricted universe multiverse
-    deb http://ports.ubuntu.com/ubuntu-ports/ precise-security main restricted universe multiverse
-    deb-src http://ports.ubuntu.com/ubuntu-ports/ precise-security main restricted universe multiverse</code></pre>
+        * 12.04
+        <pre><code>deb http://ports.ubuntu.com/ubuntu-ports/ precise main restricted universe multiverse
+        deb-src http://ports.ubuntu.com/ubuntu-ports/ precise main restricted universe multiverse
+        deb http://ports.ubuntu.com/ubuntu-ports/ precise-updates main restricted universe multiverse
+        deb-src http://ports.ubuntu.com/ubuntu-ports/ precise-updates main restricted universe multiverse
+        deb http://ports.ubuntu.com/ubuntu-ports/ precise-security main restricted universe multiverse
+        deb-src http://ports.ubuntu.com/ubuntu-ports/ precise-security main restricted universe multiverse</code></pre>
+        * 14.04
+        <pre><code>deb http://ports.ubuntu.com/ubuntu-ports/ trusty main restricted universe multiverse
+        deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty main restricted universe multiverse
+        deb http://ports.ubuntu.com/ubuntu-ports/ trusty-updates main restricted universe multiverse
+        deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty-updates main restricted universe multiverse
+        deb http://ports.ubuntu.com/ubuntu-ports/ trusty-security main restricted universe multiverse
+        deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty-security main restricted universe multiverse</code></pre>
     * `apt-get update`
 8. Configure language
     * `apt-get -y install language-pack-en-base`

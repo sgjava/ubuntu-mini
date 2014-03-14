@@ -60,6 +60,7 @@ using. Then look at the list below to see if the chipset is included.
     * 8188eu
     * 8192 series (B/G/N up to 300 MB/sec)
 * Zydas 1211
+
 **This is based on Alok Sihna's 3.0.8 kernel**
 
 ### Requirements

@@ -97,11 +97,16 @@ using. Then look at the list below to see if the chipset is included.
 
 ### Requirements
 * Ubuntu 12.04 desktop (I used a VirtualBox VM)
-    * Add 8 GB hard disk under Storage using Oracle VM VirtualBox Manager
+    * Add 8 GB hard disk under Storage using Oracle VM VirtualBox Manager in place of an 8 GB SD card
 * A Mini PC with a Rockchip RK3066 dual core ARM A9 processor. The following are officially supported:
     * Ugoos UG802
     * MK808 (w/o bluetooth)
     * Rikomagic MK802 III (w/o bluetooth)
+    * Rikomagic MK802-IV
+    * OEM CX919
+    * Tronsmart MK908
+    * iMito QX1
+    * Tronsmart T428    
 * A monitor or TV with an available HDMI input (I used a Motorola Lapdock).
 * An OTG USB cable appropriate for your device. For the Windows PC side we need a full size USB A connector. The Mini PC side of this cable varies, depending on the device. A MK808 uses a Mini USB male connector. The UG802 and the MK802 III use a Micro USB male connector.
 * A MicroSD of at least 4GB in size to hold the linuxroot filesystem.
@@ -284,7 +289,7 @@ using. Then look at the list below to see if the chipset is included.
 
 ### Build kernel for Linux
 I had issues with the MK808 and internal wireless network building my own
-kernels. From various forum posting it looks like others have had success,
+kernels. From various forum postings it looks like others have had success,
 so all I can say is good luck.
 
 #### Requirements
@@ -373,6 +378,35 @@ so all I can say is good luck.
 * Generate the recovery.img to flash the recovery partition of the mini PC
     * `cd ..`
     * `tools/mkbootimg --kernel rk3x_kernel_3.0.36/arch/arm/boot/Image --ramdisk initramfs/fakeramdisk.gz --base 60400000 --pagesize 16384 --ramdiskaddr 62000000 -o recovery.img`
+
+#### Build RK3188 kernels with Marvin
+* Get Marvin
+    * `mkdir android`
+    * `cd android`
+    * `git clone https://github.com/phjanderson/marvin`
+    * `cd ..`
+* Get RK3188 kernel source tree (pick one)
+    * Generic
+        * `git clone https://github.com/phjanderson/Kernel-3188`
+    * Minix Neo X7
+        * `git clone https://github.com/phjanderson/Kernel-3188-X7`
+    * PicUntu
+        * `git clone https://github.com/phjanderson/Linux3188` (this is what I'll select)
+    * Linuxium
+        * `git clone https://github.com/phjanderson/3188-SRC-AP6210`
+* Get initramfs
+    * `git clone https://github.com/Galland/rk30_linux_initramfs initramfs`
+* To build kernels, you'll need to have some software installed for cross compiling (only do this once)
+    * `cd marvin`
+    * `./marvin install_builddep`
+* Select platform
+    * `./marvin platform` (to see platforms)
+    * `./marvin platform picuntu3188` (I'm going to build with PicUntu kernel)
+* Configure kernel
+    * `./marvin config` (to see options)
+    * `./marvin config mk802iv_rtl8188eu cpu1608h 720p`
+* Build kernel
+    * `./marvin build`
 
 ### Build kernel for Android
 

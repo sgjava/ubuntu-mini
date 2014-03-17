@@ -411,6 +411,9 @@ so all I can say is good luck.
     * `./marvin config mk802iv_rtl8188eu cpu1608h 720p`
 * Build kernel
     * `./marvin build`
+* Generate the recovery.img to flash the recovery partition of the mini PC
+    * `cd ..`
+    * `tools/mkbootimg --kernel marvin/platform/picuntu3188/output/kernel_marvin_mk802iv_rtl8188eu/kernel_marvin_mk802iv_rtl8188eu_cpu1608h_720p.img --ramdisk initramfs/fakeramdisk.gz --base 60400000 --pagesize 16384 --ramdiskaddr 62000000 -o recovery.img`
 
 ### Build kernel for Android
 

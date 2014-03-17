@@ -398,6 +398,8 @@ so all I can say is good luck.
         * `git clone https://github.com/phjanderson/3188-SRC-AP6210`
 * Get initramfs
     * `git clone https://github.com/Galland/rk30_linux_initramfs initramfs`
+* mkbootimg tool (create recovery image) 
+    * `git clone https://github.com/olegk0/tools.git`
 * To build kernels, you'll need to have some software installed for cross compiling (only do this once)
     * `cd marvin`
     * `./marvin install_builddep`

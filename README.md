@@ -1,10 +1,10 @@
 ## Ubuntu Mini
 
-Ubuntu Mini is lean and mean Ubuntu for Android Mini PCs. I started off like a
-lot of others by using [PicUntu](http://ubuntu.g8.net), but since it is based
-on a non-LTS version of Ubuntu I set off to build my own. You can use the
-pre-built kernels, build your own or get a kernel elsewhere. This will give you
-a lot more flexibility for creating customized distributions.
+Ubuntu Mini is lean and mean Ubuntu for ARM based Android Mini PCs. I started
+off like a lot of others by using [PicUntu](http://ubuntu.g8.net), but since it
+is based on a non-LTS version of Ubuntu I set off to build my own. You can use
+the pre-built kernels, build your own or get a kernel elsewhere. This will give
+you a lot more flexibility for creating customized distributions.
 
 You will need to identify your hardware since even the same brand names may have
 different chipsets. To be safe ask the vendor before buying if possible. I've
@@ -14,6 +14,8 @@ work on any ARM device that can boot a Linux kernel and mount the root file syst
 **You assume all the risks that come with flashing an Android device. It's very
 painless and hard to screw up, but if you do brick your Mini PC you are on your
 own!**
+
+*[Compatibility matrix for selected RK3066 based devices](#compatibility-matrix-for-selected-rk3066-based-devices)
 
 ### Compatibility matrix for selected RK3066 based devices
 |Device Name 	 |Manufacturer 	|Released 	|NAND flash 	|Wifi Chipset 	|Bluetooth Chipset 	|Special notes                                           |

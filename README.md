@@ -29,7 +29,8 @@ own!**
     * [Setting up the build environment](#setting-up-the-build-environment)
     * [Build 3.0.8-alok kernel for RK3066](#build-308-alok-kernel-for-rk3066)
     * [Build 3.0.36-galland kernel for RK3066 (wireless networking is unstable on MK808)](#build-3036-galland-kernel-for-rk3066-wireless-networking-is-unstable-on-mk808)
-* [Build kernel for Android]()
+* [Build RK3188 kernels with Marvin](#build-rk3188-kernels-with-marvin)
+* [Build kernel for Android](#build-kernel-for-android)
     * [Build 3.0.8-omegamoon kernel for RK3066 (MK808 or MK808B only)](#build-308-omegamoon-kernel-for-rk3066-mk808-or-mk808b-only)
 * [References](#references)
 * [FreeBSD License](#freebsd-license)
@@ -221,6 +222,7 @@ using. Then look at the list below to see if the chipset is included.
     * `sudo tar -pzxf linuxroot.tar.gz -C /media/linuxroot`
 * Pick kernel (or build/download one)
     * [RK3066](https://github.com/sgjava/ubuntu-mini/tree/master/rk3066)
+    * [RK3188](https://github.com/sgjava/ubuntu-mini/tree/master/rk3188)
     * Extract kernel archive
         * `sudo tar -zxf kernel.tar.gz`
     * Extract modules and firmware (assumes SD mounted as /media/linuxroot)

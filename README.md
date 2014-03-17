@@ -8,7 +8,8 @@ a lot more flexibility for creating customized distributions.
 
 You will need to identify your hardware since even the same brand names may have
 different chipsets. To be safe ask the vendor before buying if possible. I've
-personally only tested the MK808.
+personally only tested the MK808 and MK-802IV with 8188eu. In theory, this should
+work on any ARM device that can boot a Linux kernel and mount the root file system.
 
 **You assume all the risks that come with flashing an Android device. It's very
 painless and hard to screw up, but if you do brick your Mini PC you are on your
@@ -30,7 +31,19 @@ own!**
 |Neo X5 	     |Minix 	    |Nov, 2012 	|16 GB 	        |Broadcom 4330 	|Broadcom 4330 	    |                                                        |
 |MK809 II 	     |Kimdescent 	|Dec, 2012 	|8 GB 	        |Mediatek MT5931|Mediatek MT6622 	|                                                        |
 |B12 	         |Kimdescent 	|Jan, 2013 	|8 GB 	        |Mediatek MT5931|Mediatek MT6622 	|Onboard cam   
+
 **This is based on Alok Sihna's 3.0.8 kernel**
+
+### Compatibility matrix for selected RK3188 based devices
+|Device Name 	 |Manufacturer 	|Released 	|NAND flash 	|Wifi Chipset 						|Bluetooth Chipset 	|Special notes                                           |
+| -------------- | ------------ | --------- | ------------- | --------------------------------- | ----------------- | ------------------------------------------------------ |
+|MK802IV         |RikoMagic	    |Apr, 2013 	|8 GB 	        |Realtek 8188 or Broadcom AP6210	|Mediatek MT6622	|Officially supported                                    |
+|CX919 	         |OEM 	        |Feb, 2013 	|8 GB 		    |Broadcom AP6210					|Unknown			|Officially supported                                    |
+|MK908	 	     |Tronsmart 	|May, 2013 	|8 GB			|Broadcom AP6210					|Unknown 	        |Officially supported                                    |
+|QX1	 	     |iMito 	    |May, 2013 	|8 GB 	        |Realtek 8189						|RDA5876A           |Officially supported									 |
+|T428	 	     |Tronsmart	    |May, 2013 	|8 GB 	        |Broadcom AP6330					|Unknown			|Officially supported									 |
+
+**This is based on Marvin the Paranoid Android Kernel Builder**
 
 ### Supported Network Devices
 
@@ -212,9 +225,31 @@ using. Then look at the list below to see if the chipset is included.
 * Boot
     * Place SD in mini PC
     * Boot into bootloader (assumes Finless or other ROM capable of bootloader and recovery boots)
+        * You can also use terminal in Android and `reboot recovery`
     * Log into Ubuntu
     * `sudo depmod -a`
     * `sudo reboot`
+* Boot into Linux by default
+    * For the MK808 and Finless ROM just boot into recovery and from that point forward only Linux will boot
+    * For MK802-IV or to dual boot the MK808 create a init.d script for Android (ROM must support init.d scripts)
+        * Boot into Android
+        * Mount /system read/write
+            * Click on Terminal
+            * `su`
+            * `mount -o rw,remount /system`
+        * Find SD card
+            * `ls /dev/block`
+            * You should see something like `/dev/block/mmcblk0`
+        * Create init.d file (replace `/dev/block/mmcblk0` with actual block device)
+            * `cd /etc/init.d`
+            * <pre><code>cat <<END > 99boot_linux
+            #!/system/xbin/sh
+            if [ -b /dev/block/mmcblk0 ]; then
+                reboot recovery
+            fi
+            END</code></pre>
+            * `reboot`
+            * If SD card is in then Linux boots or else Android boots
 
 ### After you can boot successfully
 * Force time sync (for some reason ntp doesn't set time on boot)

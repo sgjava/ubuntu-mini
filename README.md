@@ -15,7 +15,24 @@ work on any ARM device that can boot a Linux kernel and mount the root file syst
 painless and hard to screw up, but if you do brick your Mini PC you are on your
 own!**
 
-*[Compatibility matrix for selected RK3066 based devices](#compatibility-matrix-for-selected-rk3066-based-devices)
+* [Compatibility matrix for selected RK3066 based devices](#compatibility-matrix-for-selected-rk3066-based-devices)
+* [Compatibility matrix for selected RK3188 based devices](#compatibility-matrix-for-selected-rk3188-based-devices)
+* [Supported Network Devices](#supported-network-devices)
+    * [Wired ethernet dongles](#wired-ethernet-dongles)
+    * [WiFi Adapters](#wifi-adapters)
+* [Requirements](#requirements)
+* [Create Ubuntu root filesystem](#create-ubuntu-root-filesystem)
+* [Flash kernel](#flash-kernel)
+* [After you can boot successfully](#after-you-can-boot-successfully)
+* [Build kernel for Linux](#build-kernel-for-linux)
+    * [Requirements](#requirements-1)
+    * [Setting up the build environment](#setting-up-the-build-environment)
+    * [Build 3.0.8-alok kernel for RK3066](#build-308-alok-kernel-for-rk3066)
+    * [Build 3.0.36-galland kernel for RK3066 (wireless networking is unstable on MK808)](#build-3036-galland-kernel-for-rk3066-wireless-networking-is-unstable-on-mk808)
+* [Build kernel for Android]()
+    * [Build 3.0.8-omegamoon kernel for RK3066 (MK808 or MK808B only)](#build-308-omegamoon-kernel-for-rk3066-mk808-or-mk808b-only)
+* [References](#references)
+* [FreeBSD License](#freebsd-license)
 
 ### Compatibility matrix for selected RK3066 based devices
 |Device Name 	 |Manufacturer 	|Released 	|NAND flash 	|Wifi Chipset 	|Bluetooth Chipset 	|Special notes                                           |
@@ -244,7 +261,7 @@ using. Then look at the list below to see if the chipset is included.
             * You should see something like `/dev/block/mmcblk0`
         * Create init.d file (replace `/dev/block/mmcblk0` with actual block device)
             * `cd /etc/init.d`
-            * <pre><code>cat <<END > 99boot_linux
+            * <pre><code>cat \<\<END \> 99boot_linux
             #!/system/xbin/sh
             if [ -b /dev/block/mmcblk0 ]; then
                 reboot recovery

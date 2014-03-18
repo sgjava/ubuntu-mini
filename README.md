@@ -28,7 +28,7 @@ own!**
     * [Requirements](#requirements-1)
     * [Setting up the build environment](#setting-up-the-build-environment)
     * [Build 3.0.8-alok kernel for RK3066](#build-308-alok-kernel-for-rk3066)
-    * [Build 3.0.36-galland kernel for RK3066](#build-3036-galland-kernel-for-rk3066-wireless-networking-is-unstable-on-mk808)
+    * [Build 3.0.36-galland kernel for RK3066](#build-3036-galland-kernel-for-rk3066)
 * [Build RK3188 kernels with Marvin](#build-rk3188-kernels-with-marvin)
 * [Build kernel for Android](#build-kernel-for-android)
     * [Build 3.0.8-omegamoon kernel for RK3066 (MK808 or MK808B only)](#build-308-omegamoon-kernel-for-rk3066-mk808-or-mk808b-only)

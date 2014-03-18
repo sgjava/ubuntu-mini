@@ -388,7 +388,6 @@ so all I can say is good luck.
     * `mkdir android`
     * `cd android`
     * `git clone https://github.com/phjanderson/marvin`
-    * `cd ..`
 * Get RK3188 kernel source tree (pick one)
     * Generic
         * `git clone https://github.com/phjanderson/Kernel-3188`

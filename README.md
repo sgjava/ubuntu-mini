@@ -15,12 +15,12 @@ work on any ARM device that can boot a Linux kernel and mount the root file syst
 painless and hard to screw up, but if you do brick your Mini PC you are on your
 own!**
 
+* [Requirements](#requirements)
 * [Compatibility matrix for selected RK3066 based devices](#compatibility-matrix-for-selected-rk3066-based-devices)
 * [Compatibility matrix for selected RK3188 based devices](#compatibility-matrix-for-selected-rk3188-based-devices)
 * [Supported Network Devices](#supported-network-devices)
     * [Wired ethernet dongles](#wired-ethernet-dongles)
     * [WiFi Adapters](#wifi-adapters)
-* [Requirements](#requirements)
 * [Create Ubuntu root filesystem](#create-ubuntu-root-filesystem)
 * [Flash kernel](#flash-kernel)
 * [After you can boot successfully](#after-you-can-boot-successfully)
@@ -34,6 +34,24 @@ own!**
     * [Build 3.0.8-omegamoon kernel for RK3066 (MK808 or MK808B only)](#build-308-omegamoon-kernel-for-rk3066-mk808-or-mk808b-only)
 * [References](#references)
 * [FreeBSD License](#freebsd-license)
+
+### Requirements
+* Ubuntu 12.04 desktop (I used a VirtualBox VM)
+    * Add 8 GB hard disk under Storage using Oracle VM VirtualBox Manager in place of an 8 GB SD card
+* A Mini PC with a Rockchip RK3066 dual core ARM A9 processor. The following are officially supported:
+    * Ugoos UG802
+    * MK808 (w/o bluetooth)
+    * Rikomagic MK802 III (w/o bluetooth)
+* A Mini PC with a Rockchip RK3188 quad core ARM A9 processor. The following are officially supported:
+    * Rikomagic MK802-IV
+    * OEM CX919
+    * Tronsmart MK908
+    * iMito QX1
+    * Tronsmart T428    
+* A monitor or TV with an available HDMI input (I used a Motorola Lapdock).
+* An OTG USB cable appropriate for your device. For the Windows PC side we need a full size USB A connector. The Mini PC side of this cable varies, depending on the device. A MK808 uses a Mini USB male connector. The UG802 and the MK802 III use a Micro USB male connector.
+* A MicroSD of at least 4GB in size to hold the linuxroot filesystem.
+* An Internet connection.
 
 ### Compatibility matrix for selected RK3066 based devices
 |Device Name 	 |Manufacturer 	|Released 	|NAND flash 	|Wifi Chipset 	|Bluetooth Chipset 	|Special notes                                           |
@@ -95,23 +113,6 @@ using. Then look at the list below to see if the chipset is included.
 * Zydas 1211
 
 **This is based on Alok Sihna's 3.0.8 kernel**
-
-### Requirements
-* Ubuntu 12.04 desktop (I used a VirtualBox VM)
-    * Add 8 GB hard disk under Storage using Oracle VM VirtualBox Manager in place of an 8 GB SD card
-* A Mini PC with a Rockchip RK3066 dual core ARM A9 processor. The following are officially supported:
-    * Ugoos UG802
-    * MK808 (w/o bluetooth)
-    * Rikomagic MK802 III (w/o bluetooth)
-    * Rikomagic MK802-IV
-    * OEM CX919
-    * Tronsmart MK908
-    * iMito QX1
-    * Tronsmart T428    
-* A monitor or TV with an available HDMI input (I used a Motorola Lapdock).
-* An OTG USB cable appropriate for your device. For the Windows PC side we need a full size USB A connector. The Mini PC side of this cable varies, depending on the device. A MK808 uses a Mini USB male connector. The UG802 and the MK802 III use a Micro USB male connector.
-* A MicroSD of at least 4GB in size to hold the linuxroot filesystem.
-* An internet connection.
 
 ### Create Ubuntu root filesystem
 1. Install packages

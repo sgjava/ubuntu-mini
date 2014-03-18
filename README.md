@@ -28,7 +28,7 @@ own!**
     * [Requirements](#requirements-1)
     * [Setting up the build environment](#setting-up-the-build-environment)
     * [Build 3.0.8-alok kernel for RK3066](#build-308-alok-kernel-for-rk3066)
-    * [Build 3.0.36-galland kernel for RK3066 (wireless networking is unstable on MK808)](#build-3036-galland-kernel-for-rk3066-wireless-networking-is-unstable-on-mk808)
+    * [Build 3.0.36-galland kernel for RK3066](#build-3036-galland-kernel-for-rk3066-wireless-networking-is-unstable-on-mk808)
 * [Build RK3188 kernels with Marvin](#build-rk3188-kernels-with-marvin)
 * [Build kernel for Android](#build-kernel-for-android)
     * [Build 3.0.8-omegamoon kernel for RK3066 (MK808 or MK808B only)](#build-308-omegamoon-kernel-for-rk3066-mk808-or-mk808b-only)
@@ -343,7 +343,7 @@ so all I can say is good luck.
     * `wget http://cdn02.arctablet.com/mirrors/picuntu/picuntu-linuxroot-0.9-RC2.2.tgz`
     * `tar -zxvf picuntu-linuxroot-0.9-RC2.2.tgz -C mod_fw ./lib/firmware`
 
-#### Build 3.0.36-galland kernel for RK3066 (wireless networking is unstable on MK808)
+#### Build 3.0.36-galland kernel for RK3066
 * Create build dir
     * `mkdir -p $HOME/src/rk3066/mod_fw`
     * `cd $HOME/src/rk3066`

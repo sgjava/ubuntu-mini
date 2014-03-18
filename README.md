@@ -49,7 +49,7 @@ own!**
     * iMito QX1
     * Tronsmart T428    
 * A monitor or TV with an available HDMI input (I used a Motorola Lapdock).
-* An OTG USB cable appropriate for your device. For the Windows PC side we need a full size USB A connector. The Mini PC side of this cable varies, depending on the device. A MK808 uses a Mini USB male connector. The UG802 and the MK802 III use a Micro USB male connector.
+* An OTG USB cable appropriate for your device. For the PC side we need a full size USB A connector. The Mini PC side of this cable varies, depending on the device. A MK808 uses a Mini USB male connector. The UG802, MK802 III and MK802 IV use a Micro USB male connector.
 * A MicroSD of at least 4GB in size to hold the linuxroot filesystem.
 * An Internet connection.
 

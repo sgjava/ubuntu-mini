@@ -274,6 +274,7 @@ using. Then look at the list below to see if the chipset is included.
                 reboot recovery
             fi
             END</code></pre>
+            * `chmod 777 99boot_linux`
             * `reboot`
             * If SD card is in then Linux boots or else Android boots
 

@@ -75,11 +75,11 @@ own!**
 ### Compatibility matrix for selected RK3188 based devices
 |Device Name 	 |Manufacturer 	|Released 	|NAND flash 	|Wifi Chipset 						|Bluetooth Chipset 	|Special notes                                           |
 | -------------- | ------------ | --------- | ------------- | --------------------------------- | ----------------- | ------------------------------------------------------ |
-|MK802IV         |RikoMagic	    |Apr, 2013 	|8 GB 	        |Realtek 8188 or Broadcom AP6210	|Mediatek MT6622	|Officially supported                                    |
-|CX919 	         |OEM 	        |Feb, 2013 	|8 GB 		    |Broadcom AP6210					|Unknown			|Officially supported                                    |
-|MK908	 	     |Tronsmart 	|May, 2013 	|8 GB			|Broadcom AP6210					|Unknown 	        |Officially supported                                    |
-|QX1	 	     |iMito 	    |May, 2013 	|8 GB 	        |Realtek 8189						|RDA5876A           |Officially supported									 |
-|T428	 	     |Tronsmart	    |May, 2013 	|8 GB 	        |Broadcom AP6330					|Unknown			|Officially supported									 |
+|MK802IV         |RikoMagic	    |May, 2013 	|8 GB 	        |Realtek 8188eus or Broadcom AP6210	|Mediatek MT6622	|Officially supported                                    |
+|CX919 	         |OEM 	        |Feb, 2013 	|8 GB 		    |Broadcom AP6330					|Broadcom 4330		|Officially supported                                    |
+|MK908	 	     |Tronsmart 	|May, 2013 	|8 GB			|Broadcom AP6210					|Broadcom 4330      |Officially supported                                    |
+|QX1	 	     |iMito 	    |May, 2013 	|8 GB 	        |Realtek 8189ES						|RDA5876A           |Officially supported									 |
+|T428	 	     |Tronsmart	    |May, 2013 	|8 GB 	        |Broadcom AP6330					|Broadcom 4330 		|Officially supported									 |
 
 **This is based on Marvin the Paranoid Android Kernel Builder**
 

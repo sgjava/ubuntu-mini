@@ -266,7 +266,7 @@ using. Then look at the list below to see if the chipset is included.
             * `mount -o rw,remount /system`
         * Find SD card
             * `ls /dev/block`
-            * You should see something like `/dev/block/mmcblk0`
+            * You should see something like `mmcblk0`
         * Create init.d file (replace `/dev/block/mmcblk0` with actual block device)
             * `cd /etc/init.d`
             * <pre><code>cat \<\<END \> 99boot_linux

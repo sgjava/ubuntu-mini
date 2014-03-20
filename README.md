@@ -270,7 +270,7 @@ using. Then look at the list below to see if the chipset is included.
         * Create init.d file (replace `/dev/block/mmcblk0` with actual block device)
             * `cd /etc/init.d`
             * `touch 99boot_linux`
-            * `echo "#!/system/xbin/sh" >> 99boot_linux`
+            * `echo "#!/system/bin/sh" >> 99boot_linux`
             * `echo "if [ -b /dev/block/mmcblk0 ]; then" >> 99boot_linux`
             * `echo "reboot recovery" >> 99boot_linux`
             * `echo "fi" >> 99boot_linux`

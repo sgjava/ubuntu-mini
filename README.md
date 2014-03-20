@@ -269,12 +269,12 @@ using. Then look at the list below to see if the chipset is included.
             * You should see something like `mmcblk0`
         * Create init.d file (replace `/dev/block/mmcblk0` with actual block device)
             * `cd /etc/init.d`
-            * <pre><code>cat \<\<END \> 99boot_linux
-            #!/system/xbin/sh
-            if [ -b /dev/block/mmcblk0 ]; then
-                reboot recovery
-            fi
-            END</code></pre>
+            * `touch 99boot_linux`
+            * `echo "#!/system/xbin/sh" >> 99boot_linux`
+            * `echo "if [ -b /dev/block/mmcblk0 ]; then" >> 99boot_linux`
+            * `echo "reboot recovery" >> 99boot_linux`
+            * `echo "fi" >> 99boot_linux`
+            * `cat 99boot_linux`
             * `chmod 777 99boot_linux`
             * `reboot`
             * If SD card is in then Linux boots or else Android boots

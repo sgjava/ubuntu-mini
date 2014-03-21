@@ -287,12 +287,12 @@ using. Then look at the list below to see if the chipset is included.
 * RK3066 device CPU temperature in celsius
     * `cat /sys/module/tsadc/parameters/temp* | cut -d " " -f1,2`
 * Install cpufreq    
+    * `sudo apt-get install cpufrequtils`
     * `cpufreq-info -o` current settings
     * `cpufreq-info -s` list of speeds you can set
     * `sudo cpufreq-info -w` current speed
     * `sudo cpufreq-set -r --max 1.2GHz` maximum frequency
     * `sudo cpufreq-set -r --min 1.2GHz` minimum frequency
-    * `sudo apt-get install cpufrequtils`
 * Force time sync (for some reason ntp doesn't set time on boot)
     * `sudo nano /etc/rc.local`
     * <pre><code>( /etc/init.d/ntp stop

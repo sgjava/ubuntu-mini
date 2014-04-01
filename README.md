@@ -240,7 +240,7 @@ using. Then look at the list below to see if the chipset is included.
     * Extract kernels
         * `tar -zxvf kernel.tar.gz`
     * Install RkFlashKit
-        * `git clone https://github.com/linuxerwang/rkflashkit`
+        * `git clone https://github.com/linuxerwang/rkflashkit.git`
         * `cd rkflashkit`
         * `./waf debian`
         * `sudo apt-get install python-gtk2`
@@ -402,18 +402,18 @@ so all I can say is good luck.
 * Get Marvin
     * `mkdir android`
     * `cd android`
-    * `git clone https://github.com/phjanderson/marvin`
+    * `git clone https://github.com/phjanderson/marvin.git`
 * Get RK3188 kernel source tree (pick one)
     * Generic
-        * `git clone https://github.com/phjanderson/Kernel-3188`
+        * `git clone https://github.com/phjanderson/Kernel-3188.git`
     * Minix Neo X7
-        * `git clone https://github.com/phjanderson/Kernel-3188-X7`
+        * `git clone https://github.com/phjanderson/Kernel-3188-X7.git`
     * PicUntu
-        * `git clone https://github.com/phjanderson/Linux3188` (this is what I'll select)
+        * `git clone https://github.com/phjanderson/Linux3188.git` (this is what I'll select)
     * Linuxium
-        * `git clone https://github.com/phjanderson/3188-SRC-AP6210`
+        * `git clone https://github.com/phjanderson/3188-SRC-AP6210.git`
 * Get initramfs
-    * `git clone https://github.com/Galland/rk30_linux_initramfs initramfs`
+    * `git clone https://github.com/Galland/rk30_linux_initramfs.git initramfs`
 * mkbootimg tool (create recovery image) 
     * `git clone https://github.com/olegk0/tools.git`
 * To build kernels, you'll need to have some software installed for cross compiling (only do this once)

@@ -410,6 +410,23 @@ so all I can say is good luck.
         * `git clone https://github.com/phjanderson/Kernel-3188-X7.git`
     * PicUntu
         * `git clone https://github.com/phjanderson/Linux3188.git` (this is what I'll select)
+        * For 480P do the following
+            * Get latest kernel [source](https://github.com/aloksinha2001/Linux3188) from Alok's site instead of from Marvin project.
+            * Change the following in Linux3188/drivers/video/rockchip/hdmi/rk_hdmi.h:
+            * `HDMI_VIDEO_DEFAULT_MODE` to `HDMI_720x480p_60HZ_4_3` instead of `HDMI_1920x1080p_60HZ` 
+            * Add the following to the end of Linux3188/drivers/video/display/screen/lcd_480p.c (it is missing):
+```c
+size_t get_fb_size(void)
+{
+	size_t size = 0;
+	#if defined(CONFIG_THREE_FB_BUFFER)
+		size = ((H_VD)*(V_VD)<<2)* 3; //three buffer
+	#else
+		size = ((H_VD)*(V_VD)<<2)<<1; //two buffer
+	#endif
+	return ALIGN(size,SZ_1M);
+}
+```        
     * Linuxium
         * `git clone https://github.com/phjanderson/3188-SRC-AP6210.git`
 * Get initramfs

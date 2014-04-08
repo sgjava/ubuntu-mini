@@ -426,7 +426,10 @@ so all I can say is good luck.
             	#endif
             	return ALIGN(size,SZ_1M);
             }
-            ```        
+            ```
+        * For AP6210 wifi do the following:
+            * Change the following in Linux3188/arch/arm/mach-rk3188/board-rk3188-ds1006h-sdmmc-config.c:
+                * Find line starting with `#elif defined(CONFIG_BCM4329)` and change `RK30_PIN3_PD0` to `RK30_PIN3_PB4`
     * Linuxium
         * `git clone https://github.com/phjanderson/3188-SRC-AP6210.git`
 * Get initramfs

@@ -186,8 +186,11 @@ using. Then look at the list below to see if the chipset is included.
             * Select keymap from full list
     * `apt-get -y upgrade`
 11. Configure networking
-    * `echo "bcm40181" >> /etc/modules`
-        * Change module based on chipset
+    * MK808
+        * `echo "bcm40181" >> /etc/modules`
+    * MK802IV with AP6210 wifi
+        * `echo "rkwifi" >> /etc/modules`
+    * Change module based on chipset for other mini PCs
     * `echo "ubuntu" > /etc/hostname`
     * `nano /etc/network/interfaces` (note device may show up as wlan0)
         * For DHCP

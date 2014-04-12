@@ -238,7 +238,7 @@ using. Then look at the list below to see if the chipset is included.
         * `sudo chown root:root -R /media/linuxroot/lib/firmware`
         * `sudo chown root:root -R /media/linuxroot/lib/modules`
         * If archive contains firmware in /system
-            * `sudo chown root:root -R /media/linuxroot/lib/system`
+            * `sudo chown root:root -R /media/linuxroot/system`
         * `sync`
         * Eject SD card from PC
 * Flash (assumes you have Finless or other ROM already installed)

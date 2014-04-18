@@ -8,7 +8,7 @@ you a lot more flexibility for creating customized distributions.
 
 You will need to identify your hardware since even the same brand names may have
 different chipsets. To be safe ask the vendor before buying if possible (a lot of
-newer RK3188 devices really have RK3188T CPUs which have  problems with various
+newer RK3188 devices really have RK3188T CPUs which have problems with various
 kernels available). I've personally only tested the MK808 and MK-802IV with 8188eu
 and AP6210. In theory, this should work on any ARM device that can boot a Linux
 kernel and mount the root file system.
@@ -38,7 +38,7 @@ own!**
 * [FreeBSD License](#freebsd-license)
 
 ### Requirements
-* Ubuntu 12.04 desktop (I used a VirtualBox VM)
+* Ubuntu 12.04 or Ubuntu 14.04 desktop (I used a VirtualBox VM)
     * Add 8 GB hard disk under Storage using Oracle VM VirtualBox Manager in place of an 8 GB SD card
 * A Mini PC with a Rockchip RK3066 dual core ARM A9 processor. The following are officially supported:
     * Ugoos UG802
@@ -51,7 +51,7 @@ own!**
     * iMito QX1
     * Tronsmart T428    
 * A monitor or TV with an available HDMI input (I used a Motorola Lapdock).
-* An OTG USB cable appropriate for your device. For the PC side we need a full size USB A connector. The Mini PC side of this cable varies, depending on the device. A MK808 uses a Mini USB male connector. The UG802, MK802 III and MK802 IV use a Micro USB male connector.
+* An OTG USB cable appropriate for your device.
 * A MicroSD of at least 4GB in size to hold the linuxroot filesystem.
 * An Internet connection.
 
@@ -142,7 +142,8 @@ using. Then look at the list below to see if the chipset is included.
         * `qemu-debootstrap --verbose --variant=minbase --arch=armhf --include=nano precise /mnt/tmp http://ports.ubuntu.com/ubuntu-ports > install.log 2>&1`
     * 14.04
         * `qemu-debootstrap --verbose --variant=minbase --arch=armhf --include=nano trusty /mnt/tmp http://ports.ubuntu.com/ubuntu-ports > install.log 2>&1`
-    * Check install.log for **I: Base system installed successfully.**
+    * `tail install.log`
+        * Check install.log for **I: Base system installed successfully.**
 5. Make backup of minbase
     * `tar -pzcf minbase.tar.gz -C /mnt/tmp .`
 6. chroot into new rootfs

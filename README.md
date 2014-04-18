@@ -253,7 +253,7 @@ using. Then look at the list below to see if the chipset is included.
         * `cd rkflashkit`
         * `./waf debian`
         * `sudo apt-get install python-gtk2`
-        * `sudo dpkg -i rkflashkit_0.1.1_all.deb`
+        * `sudo dpkg -i binaries/rkflashkit_0.1.1_all.deb`
     * Put mini PC into flash mode (typically use a paper clip press flash mode button and hold while plugging OTG port in to PC USB port)
     * `sudo rkflashkit`
         * NAND Partitions - recovery

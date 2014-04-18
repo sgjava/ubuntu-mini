@@ -217,10 +217,13 @@ using. Then look at the list below to see if the chipset is included.
     * `gpasswd -a test sudo`
 13. Create linuxroot archive
     * `exit`
-    * `umount /mnt/tmp/{proc,sys,dev/pts,dev,}`
+    * `umount /mnt/tmp/{proc,sys,dev/pts,dev,}` (This may fail, just reboot)
     * `rm -rf /mnt/tmp`
-    * Mount linuxroot drive (should show up as /media/linuxroot)
+    * `mkdir /media/linuxroot`
+    * `mount /dev/sdb1 /media/linuxroot`
     * `tar -pzcf linuxroot.tar.gz -C /media/linuxroot .`
+    * `umount /media/linuxroot`
+    * `rm -rf /media/linuxroot`
     * `exit`
 
 ### Flash kernel

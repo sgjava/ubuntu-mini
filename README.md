@@ -1,10 +1,10 @@
 ## Ubuntu Mini
 
 Ubuntu Mini is lean and mean Ubuntu for ARM based Android Mini PCs. I started
-off like a lot of others by using [PicUntu](http://ubuntu.g8.net), but since it
-is based on a non-LTS version of Ubuntu I set off to build my own. You can use
-the pre-built kernels, build your own or get a kernel elsewhere. This will give
-you a lot more flexibility for creating customized distributions.
+off like a lot of others by using [PicUntu](http://ubuntu.g8.net), but I wanted
+granular control of what packages were installed. You can use the pre-built kernels,
+build your own or get a kernel elsewhere. This will give you a lot more flexibility
+for creating customized distributions.
 
 You will need to identify your hardware since even the same brand names may have
 different chipsets. To be safe ask the vendor before buying if possible (a lot of

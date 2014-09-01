@@ -413,7 +413,7 @@ so all I can say is good luck.
     * `cd android`
     * `git clone https://github.com/phjanderson/marvin.git`
 * Get RK3188 kernel source tree (pick one)
-    * Generic
+    * Generic (this has limited driver support)
         * `git clone https://github.com/phjanderson/Kernel-3188.git`
     * Minix Neo X7
         * `git clone https://github.com/phjanderson/Kernel-3188-X7.git`

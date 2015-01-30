@@ -437,7 +437,7 @@ so all I can say is good luck.
             }
             ```
         * Fix dwc_otg: support non DWORD-aligned buffer for DMA:
-            * Extract [RK3066](https://github.com/sgjava/ubuntu-mini/tree/master/rk3188)
+            * Extract [otg-fix.tar.gz](https://github.com/sgjava/ubuntu-mini/raw/master/rk3188/otg-fix.tar.gz)
             * Copy files to Linux3188/drivers/usb/dwc_otg
     * Linuxium
         * `git clone https://github.com/phjanderson/3188-SRC-AP6210.git`

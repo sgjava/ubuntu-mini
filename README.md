@@ -87,10 +87,9 @@ own!**
 
 ### Supported Network Devices
 
-Note: This list is based upon the kernel and modules available
-[here](http://www.rikomagic.co.uk/forum/viewtopic.php?f=12&t=4055#p11058). You
-will need to look up the adapter you intend to use and see which chipset it is
-using. Then look at the list below to see if the chipset is included.
+Note: You will need to look up the adapter you intend to use and see which
+chipset it is using. Then look at the list below to see if the chipset is
+included.
 
 #### Wired ethernet dongles
 

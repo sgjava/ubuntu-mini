@@ -115,7 +115,7 @@ included.
 
 **This is based on Alok Sihna's 3.0.8 kernel**
 
-### Create Ubuntu root filesystem
+### Create Ubuntu root filesystem (MK808, MK802IV, etc.)
 1. Install packages
     * `sudo su -`
     * `apt-get -y install qemu-user-static binfmt-support debootstrap`
@@ -288,6 +288,11 @@ included.
             * `chmod 777 99boot_linux`
             * `reboot`
             * If SD card is in then Linux boots or else Android boots
+
+### Create Ubuntu root filesystem (ODROID-C1)
+1. Download scripts on Ubuntu 14.04 x86_64 (VM is fine)
+    * `sudo su -`
+    * `apt-get -y install qemu-user-static binfmt-support debootstrap`
 
 ### After you can boot successfully
 * If you see `Skipping mounting / since Plymouth is not available` and your file

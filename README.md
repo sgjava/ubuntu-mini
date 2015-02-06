@@ -291,8 +291,9 @@ included.
 
 ### Create Ubuntu root filesystem (ODROID-C1)
 1. Download scripts on Ubuntu 14.04 x86_64 (VM is fine)
-    * `sudo su -`
-    * `apt-get -y install qemu-user-static binfmt-support debootstrap`
+    * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/image.sh`
+    * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/minimal.sh`
+    * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/final.sh`
 
 ### After you can boot successfully
 * If you see `Skipping mounting / since Plymouth is not available` and your file

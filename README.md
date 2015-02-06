@@ -23,8 +23,9 @@ own!**
 * [Supported Network Devices](#supported-network-devices)
     * [Wired ethernet dongles](#wired-ethernet-dongles)
     * [WiFi Adapters](#wifi-adapters)
-* [Create Ubuntu root filesystem](#create-ubuntu-root-filesystem)
+* [Create Ubuntu root filesystem MK808, MK802IV, etc.](#)
 * [Flash kernel](#flash-kernel)
+* [Create Ubuntu root filesystem ODROID-C1](#)
 * [After you can boot successfully](#after-you-can-boot-successfully)
 * [Build kernel for Linux](#build-kernel-for-linux)
     * [Requirements](#requirements-1)
@@ -115,7 +116,7 @@ included.
 
 **This is based on Alok Sihna's 3.0.8 kernel**
 
-### Create Ubuntu root filesystem (MK808, MK802IV, etc.)
+### Create Ubuntu root filesystem MK808, MK802IV, etc.
 1. Install packages
     * `sudo su -`
     * `apt-get -y install qemu-user-static binfmt-support debootstrap`
@@ -289,7 +290,7 @@ included.
             * `reboot`
             * If SD card is in then Linux boots or else Android boots
 
-### Create Ubuntu root filesystem (ODROID-C1)
+### Create Ubuntu root filesystem ODROID-C1
 
 1. Download scripts on Ubuntu Desktop 14.04 x86_64 (VM is fine)
     * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/image.sh`

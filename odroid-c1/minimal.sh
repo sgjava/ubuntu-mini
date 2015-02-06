@@ -16,7 +16,7 @@
 #
 # o image.sh completed and you are at chroot prompt
 # o Copy ./minimal.sh to chroot root dir
-# 0 cd /root
+# o cd /root
 # o ./minimal.sh
 #
 
@@ -112,7 +112,13 @@ log "Making /media/boot mounting at boot time"
 echo "LABEL=boot /media/boot vfat defaults 0 0" >> /etc/fstab
 
 # Setting a root password
+log "Change root password"
 passwd root
+
+# Adding new user
+log "Add test user with sudo access"
+adduser test
+adduser test sudo
 
 # Get end time
 endtime=$(date "$dateformat")

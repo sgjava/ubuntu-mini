@@ -290,10 +290,21 @@ included.
             * If SD card is in then Linux boots or else Android boots
 
 ### Create Ubuntu root filesystem (ODROID-C1)
-1. Download scripts on Ubuntu 14.04 x86_64 (VM is fine)
+1. Download scripts on Ubuntu Desktop 14.04 x86_64 (VM is fine)
     * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/image.sh`
     * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/minimal.sh`
     * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/final.sh`
+2. Create image file and switch to chroot
+    * `sudo ./image.sh`
+3. Install minimal Ubuntu
+    * Once image.sh has completed (wait for script to finish) you should see two Files windows open (boot and target)
+    * Copy minimal.sh to chroot /root from a new terminal window
+            * `sudo cp minimal.sh /home/<username>/ubuntu/target/root/.`
+    * In chroot terminal
+            * `cd /root`
+            * `chmod a+x minimal.sh`
+            * `./minimal.sh`
+            	* test
 
 ### After you can boot successfully
 * If you see `Skipping mounting / since Plymouth is not available` and your file

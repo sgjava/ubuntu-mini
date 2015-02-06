@@ -305,6 +305,7 @@ included.
         * `cd /root`
         * `chmod a+x minimal.sh`
         * `./minimal.sh`
+            * Configure language
 
 ### After you can boot successfully
 * If you see `Skipping mounting / since Plymouth is not available` and your file

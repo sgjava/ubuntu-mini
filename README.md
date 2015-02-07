@@ -301,7 +301,7 @@ by using three scripts. My scripts also configure language, timezone and wireles
     * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/minimal.sh`
     * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/finish.sh`
     * `chmod a+x *.sh`
-2. Create image file and switch to chroot
+2. Create image file
     * ``export ubuntu=`pwd` ``
     * `sudo ./image.sh`
 3. Install minimal Ubuntu (this script requires user interaction)

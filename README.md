@@ -292,7 +292,7 @@ included.
 
 ### Create Ubuntu root filesystem ODROID-C1
 
-I automated much of [Ubuntu Minimal Image](odroid.com/dokuwiki/doku.php?id=en:c1_ubuntu_minimal)
+I automated much of [Ubuntu Minimal Image](http://odroid.com/dokuwiki/doku.php?id=en:c1_ubuntu_minimal)
 by using three scripts. My scripts also configure language, timezone and wireless support.
 
 1. Download scripts on Ubuntu Desktop 14.04 x86_64 (VM is fine)

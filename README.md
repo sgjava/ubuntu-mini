@@ -523,6 +523,7 @@ so all I can say is good luck.
 * [Installing Linux on a RK3066 based device](http://linux.autostatic.com/installing-linux-on-a-rk3066-based-device)
 * [Ubuntu Without CD](https://help.ubuntu.com/community/Installation/FromLinux#Without_CD)
 * [Your own official Linux distro in a SD card (for ARM)](http://hwswbits.blogspot.com/2013/11/your-own-official-linux-distro-in-sd.html)
+* [ODROID C1 Ubuntu Minimal Image](http://odroid.com/dokuwiki/doku.php?id=en:c1_ubuntu_minimal)
 
 ### FreeBSD License
 Copyright (c) Steven P. Goldsmith

@@ -332,6 +332,8 @@ by using three scripts. My scripts also configure language, timezone and wireles
     * Unmount image file
         * `sudo ./finish.sh`
     * Flash image (change sdX to SD card device)
+        * Make sure all partitions have been deleted on SD card (use gparted)
+        * `sudo fdisk -l` Find your SD card
         * `sudo dd if=image.img of=/dev/sdX bs=1M`
     * Place SD card in ODROID-C1 and boot
 

@@ -347,10 +347,11 @@ by using three scripts. My scripts also configure language, timezone and wireles
         * Eject SD
     * boot.ini changes
         * Place SD in PC
+        * Edit boot.ini from boot mount
     * Place SD card in ODROID-C1 and boot
 
 ### After you can boot successfully
-* If you see `Skipping mounting / since Plymouth is not available` on RK3066 or MK 3188
+* If you see `Skipping mounting / since Plymouth is not available` on RK3066 or RK3188
   and your file system is read only, do this one time:
     * `sudo mount -o remount,rw /`
     * `sudo reboot`

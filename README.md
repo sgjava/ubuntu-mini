@@ -302,7 +302,7 @@ by using three scripts. My scripts also configure language, timezone and wireles
     * `chmod a+x *.sh`
 2. Create image file and switch to chroot
     * `sudo ./image.sh`
-    * `export ubuntu=`pwd``
+    * `export ubuntu=``pwd``
 3. Install minimal Ubuntu (this script requires user interaction)
     * Once image.sh has completed you should see two Files windows open (boot and target)
     * Copy minimal.sh to chroot /root from a new terminal window

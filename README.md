@@ -349,7 +349,8 @@ by using three scripts. My scripts also configure language, timezone and wireles
         * Place SD in PC
         * Edit boot.ini from boot mount
             * I changed the screen resolution to work with my Lapdock
-    * Place SD card in ODROID-C1 and boot
+    * Place SD card in ODROID-C1, boot, install u-boot
+        * `sudo apt-get install u-boot`
 
 ### After you can boot successfully
 * If you see `Skipping mounting / since Plymouth is not available` on RK3066 or RK3188

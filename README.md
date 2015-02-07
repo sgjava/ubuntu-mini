@@ -302,8 +302,8 @@ by using three scripts. My scripts also configure language, timezone and wireles
     * `chmod a+x *.sh`
 2. Create image file and switch to chroot
     * `sudo ./image.sh`
-3. Install minimal Ubuntu
-    * Once image.sh has completed (wait for script to finish) you should see two Files windows open (boot and target)
+3. Install minimal Ubuntu (this script requires user interaction)
+    * Once image.sh has completed you should see two Files windows open (boot and target)
     * Copy minimal.sh to chroot /root from a new terminal window
         * `sudo cp minimal.sh /home/<username>/ubuntu/target/root/.`
     * In chroot terminal
@@ -312,6 +312,22 @@ by using three scripts. My scripts also configure language, timezone and wireles
         * `./minimal.sh`
             * Please select the geographic area: Select from list
             * Please select the city or region: Select from list
+            * 
+            * 
+            * Configuring console-data: <OK>
+            * Policy for handling keymaps: Select keymap from full list: <OK>
+            * Keymap: Select keymay then <OK>
+            * root: Enter new UNIX password: 
+            * root: Retype new UNIX password:
+            * test: Enter new UNIX password: 
+            * test: Retype new UNIX password: 
+            * Full Name []: Test User
+            * Room Number []: Press Enter 
+            * Work Phone []: Press Enter
+            * Home Phone []: Press Enter
+            * Other []: Press Enter
+            * Is the information correct? [Y/n] Press Enter  
+        * `exit`
 
 ### After you can boot successfully
 * If you see `Skipping mounting / since Plymouth is not available` on RK3066 or MK 3188

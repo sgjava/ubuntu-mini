@@ -155,6 +155,6 @@ log "Image ready, prompt will be chroot"
 log "Elapse time: $displaytime"
 
 # Switch to chroot
-log "chroot"
-chroot "$target"
+#log "chroot"
+#chroot "$target"
 

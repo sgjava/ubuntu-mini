@@ -335,6 +335,9 @@ by using three scripts. My scripts also configure language, timezone and wireles
         * Make sure all partitions have been deleted on SD card (use gparted)
         * `sudo fdisk -l` Find your SD card
         * `sudo dd if=image.img of=/dev/sdX bs=1M`
+        * Eject SD
+    * boot.ini changes
+        * Place SD in PC
     * Place SD card in ODROID-C1 and boot
 
 ### After you can boot successfully

@@ -69,7 +69,7 @@ log "Configure timezone"
 dpkg-reconfigure tzdata
 
 log "ubuntu-minimal with some useful packages"
-apt-get -y install software-properties-common u-boot-tools isc-dhcp-client ubuntu-minimal ssh net-tools wireless-tools wpasupplicant ntpdate ntp less tzdata console-common nano >> $logfile 2>&1
+apt-get -y install software-properties-common u-boot-tools isc-dhcp-client ubuntu-minimal ssh net-tools wireless-tools wpasupplicant ntpdate ntp less tzdata console-common nano
 
 log "Add ORDOID keys and update"
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AB19BAC9 >> $logfile 2>&1

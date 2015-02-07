@@ -59,7 +59,7 @@ deb http://ports.ubuntu.com/ubuntu-ports/ trusty-security multiverse
 deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty-security multiverse
 EOF
 
-apt-get update
+apt-get update >> $logfile 2>&1
 
 # Pick your native language pack instead of en if desired
 log "Configure language"
@@ -69,14 +69,14 @@ log "Configure timezone"
 dpkg-reconfigure tzdata
 
 log "ubuntu-minimal with some useful packages"
-apt-get -y install software-properties-common u-boot-tools isc-dhcp-client ubuntu-minimal ssh net-tools wireless-tools wpasupplicant ntpdate ntp less tzdata console-common nano
+apt-get -y install software-properties-common u-boot-tools isc-dhcp-client ubuntu-minimal ssh net-tools wireless-tools wpasupplicant ntpdate ntp less tzdata console-common nano >> $logfile 2>&1
 
 log "Add ORDOID keys and update"
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AB19BAC9
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AB19BAC9 >> $logfile 2>&1
 echo "deb http://deb.odroid.in/c1/ trusty main" > /etc/apt/sources.list.d/odroid.list
 echo "deb http://deb.odroid.in/ trusty main" >> /etc/apt/sources.list.d/odroid.list
-apt-get update
-apt-get -y install linux-image-c1 bootini
+apt-get update >> $logfile 2>&1
+apt-get -y install linux-image-c1 bootini >> $logfile 2>&1
 cp /boot/uImage* /media/boot/uImage
 
 # Setup ethernet as DHCP, create the loopback interface, leave wireless commented out

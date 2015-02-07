@@ -292,6 +292,9 @@ included.
 
 ### Create Ubuntu root filesystem ODROID-C1
 
+I automated much of [Ubuntu Minimal Image](odroid.com/dokuwiki/doku.php?id=en:c1_ubuntu_minimal)
+by using three scripts. My scripts also configure language, timezone and wireless support.
+
 1. Download scripts on Ubuntu Desktop 14.04 x86_64 (VM is fine)
     * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/image.sh`
     * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/minimal.sh`
@@ -310,8 +313,8 @@ included.
             * Configure language
 
 ### After you can boot successfully
-* If you see `Skipping mounting / since Plymouth is not available` and your file
-  system is read only, do this one time:
+* If you see `Skipping mounting / since Plymouth is not available` on RK3066 or MK 3188
+  and your file system is read only, do this one time:
     * `sudo mount -o remount,rw /`
     * `sudo reboot`
 * RK3066 device CPU temperature in celsius
@@ -323,16 +326,6 @@ included.
     * `sudo cpufreq-info -w` current speed
     * `sudo cpufreq-set -r --max 1.2GHz` maximum frequency
     * `sudo cpufreq-set -r --min 1.2GHz` minimum frequency
-* Force time sync (for some reason ntp doesn't set time on boot)
-    * `sudo nano /etc/rc.local`
-    * <pre><code>( /etc/init.d/ntp stop
-      until ping -nq -c3 8.8.8.8; do
-      echo "Waiting for network..."
-      done
-      ntpdate -s time.nist.gov
-      /etc/init.d/ntp start )&</code></pre>
-* Install desktop for you GUI lovers
-    * `sudo apt-get install xubuntu-desktop`
 
 ### Build kernel for Linux
 I had issues with the MK808 and internal wireless network building my own

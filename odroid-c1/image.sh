@@ -84,7 +84,7 @@ export ubuntu=`pwd`
 
 # Create a image with 4096 1Mbyte blocks (4Gbyte image)
 log "Creating image file $image"
-dd if=/dev/zero of=./$image bs=1M count=4096
+dd if=/dev/zero of=./$image bs=1M count=4096 >> $logfile 2>&1
 
 # Create fat32 partition for kernel+initramfs+boot script
 log "Creating fat32 partition"
@@ -94,7 +94,7 @@ p
 
 +128M
 w
-"|fdisk $image
+"|fdisk $image >> $logfile 2>&1
 
 # Create ext4 partition for the OS
 log "Creating ext4 partition"
@@ -104,22 +104,22 @@ p
 
 
 w
-"|fdisk $image
+"|fdisk $image >> $logfile 2>&1
 
 # Formatting and setting up partitions
 # Setup loopback and format the partitions
 # Also change the UUID and disable journaling
 
-losetup /dev/loop0 ./$image
-partprobe /dev/loop0
+losetup /dev/loop0 ./$image >> $logfile 2>&1
+partprobe /dev/loop0 >> $logfile 2>&1
 log "Formatting fat partition"
-mkfs.vfat -n boot /dev/loop0p1
+mkfs.vfat -n boot /dev/loop0p1 >> $logfile 2>&1
 log "Formatting ext4 partition"
-mkfs.ext4 -L rootfs /dev/loop0p2
+mkfs.ext4 -L rootfs /dev/loop0p2 >> $logfile 2>&1
 log "Change UUID"
-tune2fs /dev/loop0p2 -U e139ce78-9841-40fe-8823-96a304a09859
+tune2fs /dev/loop0p2 -U e139ce78-9841-40fe-8823-96a304a09859 >> $logfile 2>&1
 log "Disable journaling"
-tune2fs -O ^has_journal /dev/loop0p2
+tune2fs -O ^has_journal /dev/loop0p2 >> $logfile 2>&1
 
 # Download a pre-built version of U-Boot for C1 and fuse the image
 log "Downloading pre-built version of U-Boot for C1 to fuse to $image"
@@ -128,17 +128,17 @@ wget https://raw.githubusercontent.com/mdrjr/c1_uboot_binaries/master/u-boot.bin
 wget https://raw.githubusercontent.com/mdrjr/c1_uboot_binaries/master/sd_fusing.sh
 chmod +x sd_fusing.sh
 log "fusing to $image"
-./sd_fusing.sh /dev/loop0
+./sd_fusing.sh /dev/loop0 >> $logfile 2>&1
 
 # Mount the partitions, copy qemu to enable chroot to arm and start debootstrap
 log "Debootstrap $target"
 mkdir -p "$target"
-mount /dev/loop0p2 "$target"
-mkdir -p "$target"/media/boot
-mount /dev/loop0p1 "$target"/media/boot
-mkdir -p "$target"/usr/bin
+mount /dev/loop0p2 "$target" >> $logfile 2>&1
+mkdir -p "$target"/media/boot >> $logfile 2>&1
+mount /dev/loop0p1 "$target"/media/boot >> $logfile 2>&1
+mkdir -p "$target"/usr/bin >> $logfile 2>&1
 cp /usr/bin/qemu-arm-static "$target"/usr/bin
-debootstrap --variant=buildd --arch armhf trusty "$target" http://ports.ubuntu.com
+debootstrap --variant=buildd --arch armhf trusty "$target" http://ports.ubuntu.com >> $logfile 2>&1
 
 # Get end time
 endtime=$(date "$dateformat")

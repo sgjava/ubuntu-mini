@@ -23,7 +23,7 @@ own!**
 * [Supported Network Devices](#supported-network-devices)
     * [Wired ethernet dongles](#wired-ethernet-dongles)
     * [WiFi Adapters](#wifi-adapters)
-* [Create Ubuntu root filesystem MK808, MK802IV, etc.](create-ubuntu-root-filesystem-mk808-mk802iv-etc)
+* [Create Ubuntu root filesystem MK808, MK802IV, etc.](#create-ubuntu-root-filesystem-mk808-mk802iv-etc)
 * [Flash kernel](#flash-kernel)
 * [Create Ubuntu root filesystem ODROID-C1](#create-ubuntu-root-filesystem-odroid-c1)
 * [After you can boot successfully](#after-you-can-boot-successfully)

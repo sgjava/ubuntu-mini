@@ -1,17 +1,17 @@
 ## Ubuntu Mini
 
-Ubuntu Mini is lean and mean Ubuntu for ARM based Android Mini PCs. I started
-off like a lot of others by using [PicUntu](http://ubuntu.g8.net), but I wanted
-granular control of what packages were installed. You can use the pre-built kernels,
-build your own or get a kernel elsewhere. This will give you a lot more flexibility
-for creating customized distributions.
+Ubuntu Mini is lean and mean Ubuntu for ARM based Mini PCs. I started off like a lot
+of others by using [PicUntu](http://ubuntu.g8.net), but I wanted granular control of
+what packages were installed. You can use the pre-built kernels, build your own or
+get a kernel elsewhere. This will give you a lot more flexibility for creating customized
+distributions.
 
 You will need to identify your hardware since even the same brand names may have
 different chipsets. To be safe ask the vendor before buying if possible (a lot of
 newer RK3188 devices really have RK3188T CPUs which have problems with various
-kernels available). I've personally only tested the MK808 and MK-802IV with 8188eu
-and AP6210. In theory, this should work on any ARM device that can boot a Linux
-kernel and mount the root file system.
+kernels available). I've personally only tested the MK808, MK-802IV with 8188eu
+and AP6210 and ODROID C1. In theory, this should work on any ARM device that can
+boot a Linux kernel and mount the root file system.
 
 **You assume all the risks that come with flashing an Android device. It's very
 painless and hard to screw up, but if you do brick your Mini PC you are on your

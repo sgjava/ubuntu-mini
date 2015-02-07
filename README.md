@@ -294,7 +294,7 @@ included.
 ### Create Ubuntu root filesystem ODROID-C1
 
 I automated much of [Ubuntu Minimal Image](http://odroid.com/dokuwiki/doku.php?id=en:c1_ubuntu_minimal)
-by using three scripts. My scripts also configure language, timezone and wireless support.
+by using three scripts. My scripts also configure language, timezone and wireless support (disabled by default).
 
 1. Download scripts on Ubuntu Desktop 14.04 x86_64 (VM is fine)
     * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/image.sh`
@@ -339,7 +339,7 @@ by using three scripts. My scripts also configure language, timezone and wireles
         * `cd ..`
         * `sudo ./finish.sh`
         * If there's a `device is busy` error try the following:
-            * `sudo reboot` 
+            * `sudo reboot`
     * Flash image (change sdX to SD card device)
         * Make sure all partitions have been deleted on SD card (use gparted)
         * `sudo fdisk -l` Find your SD card
@@ -348,6 +348,7 @@ by using three scripts. My scripts also configure language, timezone and wireles
     * boot.ini changes
         * Place SD in PC
         * Edit boot.ini from boot mount
+            * I changed the screen resolution to work with my Lapdock
     * Place SD card in ODROID-C1 and boot
 
 ### After you can boot successfully

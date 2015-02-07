@@ -23,6 +23,9 @@ curdir=$(cd `dirname $0` && pwd)
 # Build dir
 builddir="$curdir/ubuntu"
 
+# Target dir (without path)
+target="target"
+
 # stdout and stderr for commands logged
 logfile="$curdir/finish.log"
 rm -f $logfile
@@ -37,8 +40,8 @@ log(){
 # Clean ups and preparation to test the image
 log "Unmounting image"
 cd "$builddir"
-umount target/media/boot
-umount target
+umount "$target"/media/boot
+umount "$target"
 sync
 losetup -d /dev/loop0
 

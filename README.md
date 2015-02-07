@@ -307,6 +307,8 @@ by using three scripts. My scripts also configure language, timezone and wireles
 3. Install minimal Ubuntu (this script requires user interaction)
     * Once image.sh has completed you should see two Files windows open (boot and target)
     * Copy minimal.sh to chroot /root from a new terminal window
+        * Pick different language (default is English)
+            * Find `apt-get -y install language-pack-en-base` in minimal.sh and change to desired language pack
         * `sudo cp minimal.sh /home/<username>/ubuntu/target/root/.`
     * chroot
         * `cd ubuntu`

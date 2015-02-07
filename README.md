@@ -295,7 +295,8 @@ included.
 1. Download scripts on Ubuntu Desktop 14.04 x86_64 (VM is fine)
     * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/image.sh`
     * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/minimal.sh`
-    * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/final.sh`
+    * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/finish.sh`
+    * `chmod a+x *.sh`
 2. Create image file and switch to chroot
     * `sudo ./image.sh`
 3. Install minimal Ubuntu

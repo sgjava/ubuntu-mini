@@ -307,7 +307,9 @@ by using three scripts. My scripts also configure language, timezone and wireles
     * Once image.sh has completed you should see two Files windows open (boot and target)
     * Copy minimal.sh to chroot /root from a new terminal window
         * `sudo cp minimal.sh /home/<username>/ubuntu/target/root/.`
-    * In chroot terminal
+    * chroot
+        * `cd ubuntu`
+        * `sudo chroot target`
         * `cd /root`
         * `chmod a+x minimal.sh`
         * `./minimal.sh`
@@ -331,6 +333,7 @@ by using three scripts. My scripts also configure language, timezone and wireles
         * `exit`
 3. Finish up
     * Unmount image file
+        * `cd ..`
         * `sudo ./finish.sh`
     * Flash image (change sdX to SD card device)
         * Make sure all partitions have been deleted on SD card (use gparted)

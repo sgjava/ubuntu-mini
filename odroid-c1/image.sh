@@ -123,21 +123,21 @@ tune2fs -O ^has_journal /dev/loop0p2 >> $logfile 2>&1
 
 # Download a pre-built version of U-Boot for C1 and fuse the image
 log "Downloading pre-built version of U-Boot for C1 to fuse to $image"
-wget https://raw.githubusercontent.com/mdrjr/c1_uboot_binaries/master/bl1.bin.hardkernel
-wget https://raw.githubusercontent.com/mdrjr/c1_uboot_binaries/master/u-boot.bin
-wget https://raw.githubusercontent.com/mdrjr/c1_uboot_binaries/master/sd_fusing.sh
-chmod +x sd_fusing.sh
-log "fusing to $image"
+wget https://raw.githubusercontent.com/mdrjr/c1_uboot_binaries/master/bl1.bin.hardkernel >> $logfile 2>&1
+wget https://raw.githubusercontent.com/mdrjr/c1_uboot_binaries/master/u-boot.bin >> $logfile 2>&1
+wget https://raw.githubusercontent.com/mdrjr/c1_uboot_binaries/master/sd_fusing.sh >> $logfile 2>&1
+chmod +x sd_fusing.sh >> $logfile 2>&1
+log "Fusing to $image"
 ./sd_fusing.sh /dev/loop0 >> $logfile 2>&1
 
 # Mount the partitions, copy qemu to enable chroot to arm and start debootstrap
 log "Debootstrap $target"
-mkdir -p "$target"
+mkdir -p "$target" >> $logfile 2>&1
 mount /dev/loop0p2 "$target" >> $logfile 2>&1
 mkdir -p "$target"/media/boot >> $logfile 2>&1
 mount /dev/loop0p1 "$target"/media/boot >> $logfile 2>&1
 mkdir -p "$target"/usr/bin >> $logfile 2>&1
-cp /usr/bin/qemu-arm-static "$target"/usr/bin
+cp /usr/bin/qemu-arm-static "$target"/usr/bin >> $logfile 2>&1
 debootstrap --variant=buildd --arch armhf trusty "$target" http://ports.ubuntu.com >> $logfile 2>&1
 
 # Get end time
@@ -152,8 +152,9 @@ dh=$((elapsedtimesec / 3600))
 displaytime=$(printf "%02d:%02d:%02d" $dh $dm $ds)
 
 log "Image ready, prompt will be chroot"
-log "Elapse time: $displaytime\n"
+log "Elapse time: $displaytime"
 
+# Switch to chroot
 log "chroot"
 chroot "$target"
 

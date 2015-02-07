@@ -39,7 +39,7 @@ own!**
 * [FreeBSD License](#freebsd-license)
 
 ### Requirements
-* Ubuntu 12.04 or Ubuntu 14.04 desktop (I used a VirtualBox VM)
+* Ubuntu 14.04 desktop (X86_64 required for ODROID C1 scripts)
     * Add 8 GB hard disk under Storage using Oracle VM VirtualBox Manager in place of an 8 GB SD card
 * A Mini PC with a Rockchip RK3066 dual core ARM A9 processor. The following are officially supported:
     * Ugoos UG802
@@ -51,6 +51,7 @@ own!**
     * Tronsmart MK908
     * iMito QX1
     * Tronsmart T428    
+* ODROID C1 with a quad core ARM Cortex-A5 processor.
 * A monitor or TV with an available HDMI input (I used a Motorola Lapdock).
 * An OTG USB cable appropriate for your device.
 * A MicroSD of at least 4GB in size to hold the linuxroot filesystem.

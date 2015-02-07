@@ -310,7 +310,8 @@ by using three scripts. My scripts also configure language, timezone and wireles
         * `cd /root`
         * `chmod a+x minimal.sh`
         * `./minimal.sh`
-            * Configure language
+            * Please select the geographic area: Select from list
+            * Please select the city or region: Select from list
 
 ### After you can boot successfully
 * If you see `Skipping mounting / since Plymouth is not available` on RK3066 or MK 3188

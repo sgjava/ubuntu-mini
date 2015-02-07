@@ -320,9 +320,9 @@ by using three scripts. My scripts also configure language, timezone and wireles
             * Time zone: Select from list
             * Country of origin for the keyboard: Select from list
             * Keyboard layout: Select from list
-            * Configuring console-data: <OK>
-            * Policy for handling keymaps: Select keymap from full list: <OK>
-            * Keymap: Select keymay then <OK>
+            * Configuring console-data: &lt;OK&gt;
+            * Policy for handling keymaps: Select keymap from full list: &lt;OK&gt;
+            * Keymap: Select keymay then &lt;OK&gt;
             * root user: Enter new UNIX password: 
             * root user: Retype new UNIX password:
             * test user: Enter new UNIX password: 

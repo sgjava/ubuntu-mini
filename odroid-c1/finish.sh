@@ -44,4 +44,4 @@ umount "$target"/media/boot
 umount "$target"
 sync
 losetup -d /dev/loop0
-
+exit 0

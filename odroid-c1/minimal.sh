@@ -100,6 +100,9 @@ iface eth0 inet dhcp
 #wpa-psk password
 EOF
 
+# Set hostname
+echo "odroidc1" > /etc/hostname
+
 # Enable the Serial console
 log "Enable serial console"
 echo "start on stopped rc or RUNLEVEL=[12345]" > /etc/init/ttyS0.conf
@@ -132,4 +135,4 @@ dh=$((elapsedtimesec / 3600))
 displaytime=$(printf "%02d:%02d:%02d" $dh $dm $ds)
 
 log "Elapse time: $displaytime\n"
-
+exit 0

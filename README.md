@@ -351,7 +351,13 @@ by using three scripts. My scripts also configure language, timezone and wireles
             * I changed the screen resolution to work with my Lapdock
     * Place SD card in ODROID-C1, boot, install u-boot
         * `sudo apt-get install u-boot`
-
+        * `sudo reboot`
+    * `nano /etc/network/interfaces`        
+        * Configure to suite your network
+    * `nano /etc/hosts`
+        * Add your host
+    * `nano /etc/resolv.conf`
+        * Change to your DNS server(s)
 ### After you can boot successfully
 * If you see `Skipping mounting / since Plymouth is not available` on RK3066 or RK3188
   and your file system is read only, do this one time:

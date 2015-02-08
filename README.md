@@ -358,6 +358,7 @@ by using three scripts. My scripts also configure language, timezone and wireles
         * Add your host
     * `nano /etc/resolv.conf`
         * Change to your DNS server(s)
+        
 ### After you can boot successfully
 * If you see `Skipping mounting / since Plymouth is not available` on RK3066 or RK3188
   and your file system is read only, do this one time:

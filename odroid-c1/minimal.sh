@@ -57,6 +57,11 @@ deb http://ports.ubuntu.com/ubuntu-ports/ trusty-security universe
 deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty-security universe
 deb http://ports.ubuntu.com/ubuntu-ports/ trusty-security multiverse  
 deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty-security multiverse
+
+deb http://ports.ubuntu.com/ubuntu-ports/ trusty multiverse
+deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty multiverse
+deb http://ports.ubuntu.com/ubuntu-ports/ trusty-updates multiverse
+deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty-updates multiverse
 EOF
 
 apt-get update >> $logfile 2>&1

@@ -86,23 +86,14 @@ cp /boot/uImage* /media/boot/uImage
 
 # Setup ethernet as DHCP, create the loopback interface, leave wireless commented out
 log "Configuring networking"
-cat << EOF > /etc/network/interfaces
+cat << EOF > /etc/network/interfaces.d/lo
 auto lo
 iface lo inet loopback
+EOF
 
+cat << EOF > /etc/network/interfaces.d/eth0
 auto eth0
 iface eth0 inet dhcp
-
-#auto wlan0
-#iface wlan0 inet static
-#address 192.168.1.69
-#netmask 255.255.255.0
-#network 192.168.1.0
-#broadcast 192.168.1.255
-#gateway 192.168.1.1
-#dns-nameservers 192.168.1.1
-#wpa-ssid ssid
-#wpa-psk password
 EOF
 
 # Set hostname

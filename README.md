@@ -353,7 +353,16 @@ by using three scripts. My scripts also configure language, timezone and wireles
         * `sudo apt-get install u-boot`
         * `sudo reboot`
     * `nano /etc/network/interfaces`        
-        * Configure to suite your network
+        * For wireless only configure eth0 for manual start up
+        <pre><code>auto eth0
+        iface eth0 inet manual
+        * Configure wlan0 (make sure to leave off gateway and dns-nameservers as these are set the first time you connect with eth0)
+        <pre><code>auto wlan0
+        iface wlan0 inet static
+        address 192.168.1.69
+        netmask 255.255.255.0
+        wpa-ssid ssid
+        wpa-psk password</code></pre>
     * `nano /etc/hosts`
         * Add your host
     * `nano /etc/resolv.conf`

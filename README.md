@@ -337,7 +337,7 @@ by using three scripts. My scripts also configure language, timezone and wireles
         * Place SD in PC
         * Edit boot.ini from boot mount
             * I changed the screen resolution to work with my Lapdock
-    * Place SD card in ODROID-C1, boot, install u-boot
+    * Place SD card in ODROID-C1, boot, install u-boot (this hosed my wifi, so you may want to skip)
         * `sudo apt-get install u-boot`
         * `sudo reboot`
     * `nano /etc/network/interfaces.d/wlan0`        

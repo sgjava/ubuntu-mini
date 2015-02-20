@@ -139,8 +139,6 @@ included.
     * `mount /dev/sdb1 /mnt/tmp`
     * `rm -rf /mnt/tmp/lost+found`
 4. Install Ubuntu
-    * 12.04
-        * `qemu-debootstrap --verbose --variant=minbase --arch=armhf --include=nano precise /mnt/tmp http://ports.ubuntu.com/ubuntu-ports > install.log 2>&1`
     * 14.04
         * `qemu-debootstrap --verbose --variant=minbase --arch=armhf --include=nano trusty /mnt/tmp http://ports.ubuntu.com/ubuntu-ports > install.log 2>&1`
     * `tail install.log`
@@ -155,13 +153,6 @@ included.
     * `chroot /mnt/tmp`
 7. Add apt-sources
     * `nano /etc/apt/sources.list`
-        * 12.04
-        <pre><code>deb http://ports.ubuntu.com/ubuntu-ports/ precise main restricted universe multiverse
-        deb-src http://ports.ubuntu.com/ubuntu-ports/ precise main restricted universe multiverse
-        deb http://ports.ubuntu.com/ubuntu-ports/ precise-updates main restricted universe multiverse
-        deb-src http://ports.ubuntu.com/ubuntu-ports/ precise-updates main restricted universe multiverse
-        deb http://ports.ubuntu.com/ubuntu-ports/ precise-security main restricted universe multiverse
-        deb-src http://ports.ubuntu.com/ubuntu-ports/ precise-security main restricted universe multiverse</code></pre>
         * 14.04
         <pre><code>deb http://ports.ubuntu.com/ubuntu-ports/ trusty main restricted universe multiverse
         deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty main restricted universe multiverse
@@ -178,9 +169,6 @@ included.
         * Select the geographic area in which you live
         * Select the city or region corresponding to your time zone
 10. Add useful packages
-    * 12.04
-        * `apt-get -y install sudo dhcp3-client udev netbase ifupdown iproute openssh-server iputils-ping wget net-tools wireless-tools wpasupplicant ntpdate ntp less tzdata console-tools console-common module-init-tools`
-            * Select keymap from full list
     * 14.04
         * `apt-get -y install sudo isc-dhcp-client udev netbase ifupdown iproute openssh-server iputils-ping wget net-tools wireless-tools wpasupplicant ntpdate ntp less tzdata console-common module-init-tools`
             * Country of origin for the keyboard
@@ -352,15 +340,14 @@ by using three scripts. My scripts also configure language, timezone and wireles
     * Place SD card in ODROID-C1, boot, install u-boot
         * `sudo apt-get install u-boot`
         * `sudo reboot`
-    * `nano /etc/network/interfaces`        
-        * For wireless only configure eth0 for manual start up
-        <pre><code>auto eth0
-        iface eth0 inet manual
-        * Configure wlan0 (make sure to leave off gateway and dns-nameservers as these are set the first time you connect with eth0)
+    * `nano /etc/network/interfaces.d/wlan0`        
+        * Configure wlan0 if needed
         <pre><code>auto wlan0
         iface wlan0 inet static
+        wireless-power off
         address 192.168.1.69
         netmask 255.255.255.0
+        gateway 192.168.1.1
         wpa-ssid ssid
         wpa-psk password</code></pre>
     * `nano /etc/hosts`
@@ -389,7 +376,7 @@ kernels. From various forum postings it looks like others have had success,
 so all I can say is good luck.
 
 #### Requirements
-* Ubuntu 12.04 desktop (I used a VirtualBox VM)
+* Ubuntu 14.04 desktop (I used a VirtualBox VM)
 
 #### Setting up the build environment
 * Ubuntu x86_64

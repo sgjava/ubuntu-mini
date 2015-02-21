@@ -344,7 +344,6 @@ by using three scripts. My scripts also configure language, timezone and wireles
         * Configure wlan0 if needed
         <pre><code>auto wlan0
         iface wlan0 inet static
-        wireless-power off
         address 192.168.1.69
         netmask 255.255.255.0
         gateway 192.168.1.1

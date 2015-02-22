@@ -368,6 +368,10 @@ by using three scripts. My scripts also configure language, timezone and wireles
     * `sudo cpufreq-info -w` current speed
     * `sudo cpufreq-set -r --max 1.2GHz` maximum frequency
     * `sudo cpufreq-set -r --min 1.2GHz` minimum frequency
+    * Add to /etc/rc.local to set after boot
+* If fsck hangs boot process make it automatic
+    * `sudo nano /etc/default/rcS`
+        * Uncomment FSCKFIX and set to yes
 
 ### Build kernel for Linux
 I had issues with the MK808 and internal wireless network building my own

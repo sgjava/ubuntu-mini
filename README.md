@@ -365,14 +365,14 @@ by using three scripts. My scripts also configure language, timezone and wireles
     * `cat /sys/devices/virtual/thermal/thermal_zone0/temp`
 * ODROID C1 device CPU frequency
     * `cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_cur_freq`
-* Install cpufreq (you can put cpufreq-set in /etc/rc.local to set during boot)
+* Install cpufreq
     * `sudo apt-get install cpufrequtils`
     * `cpufreq-info -o` current settings
     * `cpufreq-info -s` list of speeds you can set
     * `sudo cpufreq-info -w` current speed
     * `sudo cpufreq-set -r --max 1.2GHz` maximum frequency
     * `sudo cpufreq-set -r --min 1.2GHz` minimum frequency
-    * Add to /etc/rc.local to set after boot
+    * Add cpufreq-set to /etc/rc.local to set after boot
 * If fsck hangs boot process make it automatic
     * `sudo nano /etc/default/rcS`
         * Uncomment FSCKFIX and set to yes

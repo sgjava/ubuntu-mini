@@ -283,6 +283,7 @@ included.
 
 I automated much of [Ubuntu Minimal Image](http://odroid.com/dokuwiki/doku.php?id=en:c1_ubuntu_minimal)
 by using three scripts. My scripts also configure language, timezone and wireless support (disabled by default).
+Tested on 01/19/2016.
 
 1. Download scripts on Ubuntu Desktop 14.04 x86_64 (VM is fine)
     * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/image.sh`

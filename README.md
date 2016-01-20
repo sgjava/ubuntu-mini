@@ -338,9 +338,7 @@ Tested on 01/19/2016.
         * Place SD in PC
         * Edit boot.ini from boot mount
             * I changed the screen resolution to work with my Lapdock
-    * Place SD card in ODROID-C1/C1+, boot, install u-boot (this hosed my wifi, so you may want to skip)
-        * `sudo apt-get install u-boot`
-        * `sudo reboot`
+            * For headless server setenv vpu "0" and setenv hdmioutput "0" to save about 140MB RAM. Do this after you can boot successfully and no longer need the display to debug.
     * `nano /etc/network/interfaces.d/wlan0`        
         * Configure wlan0 if needed
         <pre><code>auto wlan0

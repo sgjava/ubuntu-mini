@@ -371,7 +371,8 @@ Tested on 01/19/2016.
     * `sudo cpufreq-info -w` current speed
     * `sudo cpufreq-set -r --max 1.2GHz` maximum frequency
     * `sudo cpufreq-set -r --min 1.2GHz` minimum frequency
-    * Add cpufreq-set to /etc/rc.local to set after boot
+    * `sudo nano /etc/default/cpufrequtils` settings on start up
+        * Add `GOVERNOR="conservative"` and other settings as needed
 * If fsck hangs boot process make it automatic
     * `sudo nano /etc/default/rcS`
         * Uncomment FSCKFIX and set to yes

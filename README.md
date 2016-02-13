@@ -371,13 +371,18 @@ Tested on 01/19/2016.
     * `sudo cpufreq-info -w` current speed
     * `sudo cpufreq-set -r --max 1.2GHz` maximum frequency
     * `sudo cpufreq-set -r --min 1.2GHz` minimum frequency
-    * `sudo nano /etc/default/cpufrequtils` settings on start up
-        * Add `GOVERNOR="conservative"` and other settings as needed
+* ODROID C1/C1+ set CPU frequency on boot
+    * Disable ondemand governor `sudo update-rc.d ondemand disable`
+    * `sudo nano /etc/default/cpufrequtils` settings on start up (this is for ODROID C1 for example)
+        * Add `ENABLE="true"`
+        * Add `GOVERNOR="conservative"`
+        * Add `MAX_SPEED=1632000`
+        * Add `MIN_SPEED=96000`
 * If fsck hangs boot process make it automatic
     * `sudo nano /etc/default/rcS`
         * Uncomment FSCKFIX and set to yes
 * Boot fast
-    * `/etc/init/failsafe.conf`
+    * `sudo nano /etc/init/failsafe.conf`
         * Comment out all `sleep` commands
 
 ### Build kernel for Linux

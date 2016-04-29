@@ -39,7 +39,7 @@ own!**
 * [FreeBSD License](#freebsd-license)
 
 ### Requirements
-* Ubuntu 14.04 desktop (X86_64 required for ODROID C1/C1+ scripts)
+* Ubuntu 16.04 desktop (X86_64 required for ODROID C1/C1+ scripts)
     * Add 8 GB hard disk under Storage using Oracle VM VirtualBox Manager in place of an 8 GB SD card
 * A Mini PC with a Rockchip RK3066 dual core ARM A9 processor. The following are officially supported:
     * Ugoos UG802
@@ -285,7 +285,7 @@ I automated much of [Ubuntu Minimal Image](http://odroid.com/dokuwiki/doku.php?i
 by using three scripts. My scripts also configure language, timezone and wireless support (disabled by default).
 Tested on 01/19/2016.
 
-1. Download scripts on Ubuntu Desktop 14.04 x86_64 (VM is fine)
+1. Download scripts on Ubuntu Desktop 16.04 x86_64 (VM is fine)
     * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/image.sh`
     * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/minimal.sh`
     * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/finish.sh`
@@ -391,7 +391,7 @@ kernels. From various forum postings it looks like others have had success,
 so all I can say is good luck.
 
 #### Requirements
-* Ubuntu 14.04 desktop (I used a VirtualBox VM)
+* Ubuntu 16.04 desktop (I used a VirtualBox VM)
 
 #### Setting up the build environment
 * Ubuntu x86_64

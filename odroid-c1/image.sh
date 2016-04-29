@@ -4,8 +4,8 @@
 #
 # @author: sgoldsmith
 #
-# Build 4 GB image file for ODROID-C1 that will contain Ubuntu 14.04 (Trusty). Once
-# the script completes you are in chroot and must copy and run minimal.sh next.
+# Build 4 GB image file for ODROID-C0/C1/C1+/C2 that will contain Ubuntu 16.04 (Xenial).
+# Once the script completes you are in chroot and must copy and run minimal.sh next.
 #
 # This work is based on http://odroid.com/dokuwiki/doku.php?id=en:c1_ubuntu_minimal
 #
@@ -19,7 +19,7 @@
 # 
 # Prerequisites:
 #
-# o Install Ubuntu 14.04 x86_64, update (I used VirtualBox for testing) Internet
+# o Install Ubuntu 16.04 x86_64, update (I used VirtualBox for testing) Internet
 #   connection is required to download libraries, frameworks, etc.
 #    o sudo apt-get update
 #    o sudo apt-get upgrade
@@ -138,7 +138,7 @@ mkdir -p "$target"/media/boot >> $logfile 2>&1
 mount /dev/loop0p1 "$target"/media/boot >> $logfile 2>&1
 mkdir -p "$target"/usr/bin >> $logfile 2>&1
 cp /usr/bin/qemu-arm-static "$target"/usr/bin >> $logfile 2>&1
-debootstrap --variant=buildd --arch armhf trusty "$target" http://ports.ubuntu.com >> $logfile 2>&1
+debootstrap --variant=buildd --arch armhf xenial "$target" http://ports.ubuntu.com >> $logfile 2>&1
 
 # Get end time
 endtime=$(date "$dateformat")

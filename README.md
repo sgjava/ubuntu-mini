@@ -1,7 +1,7 @@
 ## Ubuntu Mini
 
 Ubuntu Mini is lean and mean Ubuntu for ARM based Mini PCs. I started off like a lot
-of others by using [PicUntu](http://ubuntu.g8.net), but I wanted granular control of
+of others by using [PicUntu](http://picuntu.g8.net), but I wanted granular control of
 what packages were installed. You can use the pre-built kernels, build your own or
 get a kernel elsewhere. This will give you a lot more flexibility for creating customized
 distributions.
@@ -283,7 +283,7 @@ included.
 
 I automated much of [Ubuntu Minimal Image](http://odroid.com/dokuwiki/doku.php?id=en:c1_ubuntu_minimal)
 by using three scripts. My scripts also configure language, timezone and wireless support (disabled by default).
-Tested on 01/19/2016.
+Tested on 04/29/2016.
 
 1. Download scripts on Ubuntu Desktop 16.04 x86_64 (VM is fine)
     * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/image.sh`

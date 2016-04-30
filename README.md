@@ -25,7 +25,7 @@ own!**
     * [WiFi Adapters](#wifi-adapters)
 * [Create Ubuntu root filesystem MK808, MK802IV, etc.](#create-ubuntu-root-filesystem-mk808-mk802iv-etc)
 * [Flash kernel](#flash-kernel)
-* [Create Ubuntu root filesystem ODROID-C0/C1/C1+/C2](#create-ubuntu-root-filesystem-odroid-c1c1)
+* [Create Ubuntu root filesystem ODROID-C0/C1/C1+/C2](#create-ubuntu-root-filesystem-odroid-c0c1c1c2)
 * [After you can boot successfully](#after-you-can-boot-successfully)
 * [Build kernel for Linux](#build-kernel-for-linux)
     * [Requirements](#requirements-1)

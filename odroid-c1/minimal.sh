@@ -4,7 +4,7 @@
 #
 # @author: sgoldsmith
 #
-# Build minimal Ubuntu 16.04 (Xenial) for ODROID-C0/C1/C1+/C2. This script is interactive
+# Build minimal Ubuntu 14.04 (Trusty) for ODROID-C1. This script is interactive
 # and must be copied and run as chroot.
 #
 # This work is based on http://odroid.com/dokuwiki/doku.php?id=en:c1_ubuntu_minimal
@@ -42,26 +42,26 @@ log(){
 # Will add hardkernel keys and repositories, fix ubuntu respository list and install the basic set of tools for a minimal image
 log "Configuring repositories"
 cat << EOF > /etc/apt/sources.list
-deb http://ports.ubuntu.com/ubuntu-ports/ xenial main universe restricted
-deb-src http://ports.ubuntu.com/ubuntu-ports/ xenial main universe restricted
+deb http://ports.ubuntu.com/ubuntu-ports/ trusty main universe restricted
+deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty main universe restricted
 
-deb http://ports.ubuntu.com/ubuntu-ports/ xenial-updates main universe restricted
-deb-src http://ports.ubuntu.com/ubuntu-ports/ xenial-updates main universe restricted
+deb http://ports.ubuntu.com/ubuntu-ports/ trusty-updates main universe restricted
+deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty-updates main universe restricted
 
-deb http://ports.ubuntu.com/ubuntu-ports/ xenial-backports main restricted
-deb-src http://ports.ubuntu.com/ubuntu-ports/ xenial-backports main restricted
+deb http://ports.ubuntu.com/ubuntu-ports/ trusty-backports main restricted
+deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty-backports main restricted
 
-deb http://ports.ubuntu.com/ubuntu-ports/ xenial-security main restricted
-deb-src http://ports.ubuntu.com/ubuntu-ports/ xenial-security main restricted
-deb http://ports.ubuntu.com/ubuntu-ports/ xenial-security universe
-deb-src http://ports.ubuntu.com/ubuntu-ports/ xenial-security universe
-deb http://ports.ubuntu.com/ubuntu-ports/ xenial-security multiverse  
-deb-src http://ports.ubuntu.com/ubuntu-ports/ xenial-security multiverse
+deb http://ports.ubuntu.com/ubuntu-ports/ trusty-security main restricted
+deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty-security main restricted
+deb http://ports.ubuntu.com/ubuntu-ports/ trusty-security universe
+deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty-security universe
+deb http://ports.ubuntu.com/ubuntu-ports/ trusty-security multiverse  
+deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty-security multiverse
 
-deb http://ports.ubuntu.com/ubuntu-ports/ xenial multiverse
-deb-src http://ports.ubuntu.com/ubuntu-ports/ xenial multiverse
-deb http://ports.ubuntu.com/ubuntu-ports/ xenial-updates multiverse
-deb-src http://ports.ubuntu.com/ubuntu-ports/ xenial-updates multiverse
+deb http://ports.ubuntu.com/ubuntu-ports/ trusty multiverse
+deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty multiverse
+deb http://ports.ubuntu.com/ubuntu-ports/ trusty-updates multiverse
+deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty-updates multiverse
 EOF
 
 apt-get update >> $logfile 2>&1
@@ -78,8 +78,8 @@ apt-get -y install sudo software-properties-common u-boot-tools isc-dhcp-client 
 
 log "Add ORDOID keys and update"
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AB19BAC9 >> $logfile 2>&1
-echo "deb http://deb.odroid.in/c1/ xenial main" > /etc/apt/sources.list.d/odroid.list
-echo "deb http://deb.odroid.in/ xenial main" >> /etc/apt/sources.list.d/odroid.list
+echo "deb http://deb.odroid.in/c1/ trusty main" > /etc/apt/sources.list.d/odroid.list
+echo "deb http://deb.odroid.in/ trusty main" >> /etc/apt/sources.list.d/odroid.list
 apt-get update >> $logfile 2>&1
 apt-get -y install linux-image-c1 bootini >> $logfile 2>&1
 cp /boot/uImage* /media/boot/uImage

@@ -1,7 +1,7 @@
 ## Ubuntu Mini
 
 Ubuntu Mini is lean and mean Ubuntu for ARM based Mini PCs. I started off like a lot
-of others by using [PicUntu](http://picuntu.g8.net), but I wanted granular control of
+of others by using [PicUntu](http://ubuntu.g8.net), but I wanted granular control of
 what packages were installed. You can use the pre-built kernels, build your own or
 get a kernel elsewhere. This will give you a lot more flexibility for creating customized
 distributions.
@@ -10,7 +10,7 @@ You will need to identify your hardware since even the same brand names may have
 different chipsets. To be safe ask the vendor before buying if possible (a lot of
 newer RK3188 devices really have RK3188T CPUs which have problems with various
 kernels available). I've personally only tested the MK808, MK-802IV with
-8188eu/AP6210 and ODROID C0/C1/C1+/C2. In theory, this should work on any ARM device that
+8188eu/AP6210 and ODROID C1/C1+. In theory, this should work on any ARM device that
 can boot a Linux kernel and mount the root file system.
 
 **You assume all the risks that come with flashing an Android device. It's very
@@ -25,7 +25,7 @@ own!**
     * [WiFi Adapters](#wifi-adapters)
 * [Create Ubuntu root filesystem MK808, MK802IV, etc.](#create-ubuntu-root-filesystem-mk808-mk802iv-etc)
 * [Flash kernel](#flash-kernel)
-* [Create Ubuntu root filesystem ODROID-C0/C1/C1+/C2](#create-ubuntu-root-filesystem-odroid-c0c1c1c2)
+* [Create Ubuntu root filesystem ODROID-C1/C1+](#create-ubuntu-root-filesystem-odroid-c1c1)
 * [After you can boot successfully](#after-you-can-boot-successfully)
 * [Build kernel for Linux](#build-kernel-for-linux)
     * [Requirements](#requirements-1)
@@ -39,7 +39,7 @@ own!**
 * [FreeBSD License](#freebsd-license)
 
 ### Requirements
-* Ubuntu 16.04 desktop (X86_64 required for ODROID C0/C1/C1+/C2 scripts)
+* Ubuntu 14.04 desktop (X86_64 required for ODROID C1/C1+ scripts)
     * Add 8 GB hard disk under Storage using Oracle VM VirtualBox Manager in place of an 8 GB SD card
 * A Mini PC with a Rockchip RK3066 dual core ARM A9 processor. The following are officially supported:
     * Ugoos UG802
@@ -51,7 +51,7 @@ own!**
     * Tronsmart MK908
     * iMito QX1
     * Tronsmart T428    
-* ODROID C0/C1/C1+/C2 with a quad core ARM processor.
+* ODROID C1/C1+ with a quad core ARM Cortex-A5 processor.
 * A monitor or TV with an available HDMI input (I used a Motorola Lapdock).
 * An OTG USB cable appropriate for your device.
 * A MicroSD of at least 4GB in size to hold the linuxroot filesystem.
@@ -279,13 +279,13 @@ included.
             * `reboot`
             * If SD card is in then Linux boots or else Android boots
 
-### Create Ubuntu root filesystem ODROID-C0/C1/C1+/C2
+### Create Ubuntu root filesystem ODROID-C1/C1+
 
 I automated much of [Ubuntu Minimal Image](http://odroid.com/dokuwiki/doku.php?id=en:c1_ubuntu_minimal)
 by using three scripts. My scripts also configure language, timezone and wireless support (disabled by default).
-Tested on 04/29/2016.
+Tested on 01/19/2016.
 
-1. Download scripts on Ubuntu Desktop 16.04 x86_64 (VM is fine)
+1. Download scripts on Ubuntu Desktop 14.04 x86_64 (VM is fine)
     * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/image.sh`
     * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/minimal.sh`
     * `wget https://raw.githubusercontent.com/sgjava/ubuntu-mini/master/odroid-c1/finish.sh`
@@ -311,7 +311,7 @@ Tested on 04/29/2016.
             * Keyboard layout: Select from list
             * Configuring console-data: &lt;OK&gt;
             * Policy for handling keymaps: Select keymap from full list: &lt;OK&gt;
-            * Keymap: Select keymap then &lt;OK&gt;
+            * Keymap: Select keymay then &lt;OK&gt;
             * root user: Enter new UNIX password: 
             * root user: Retype new UNIX password:
             * test user: Enter new UNIX password: 
@@ -360,9 +360,9 @@ Tested on 04/29/2016.
     * `sudo reboot`
 * RK3066 device CPU temperature in celsius
     * `cat /sys/module/tsadc/parameters/temp* | cut -d " " -f1,2`
-* ODROID C0/C1/C1+/C2 device CPU temperature in celsius (I had to devide by 1000)
+* ODROID C1/C1+ device CPU temperature in celsius (I had to devide by 1000)
     * `cat /sys/devices/virtual/thermal/thermal_zone0/temp`
-* ODROID C0/C1/C1+/C2 device CPU frequency
+* ODROID C1/C1+ device CPU frequency
     * `cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_cur_freq`
 * Install cpufreq
     * `sudo apt-get install cpufrequtils`
@@ -371,7 +371,7 @@ Tested on 04/29/2016.
     * `sudo cpufreq-info -w` current speed
     * `sudo cpufreq-set -r --max 1.2GHz` maximum frequency
     * `sudo cpufreq-set -r --min 1.2GHz` minimum frequency
-* ODROID C0/C1/C1+/C2 set CPU frequency on boot
+* ODROID C1/C1+ set CPU frequency on boot
     * Disable ondemand governor `sudo update-rc.d ondemand disable`
     * `sudo nano /etc/default/cpufrequtils` settings on start up (this is for ODROID C1 for example)
         * Add `ENABLE="true"`
@@ -391,7 +391,7 @@ kernels. From various forum postings it looks like others have had success,
 so all I can say is good luck.
 
 #### Requirements
-* Ubuntu 16.04 desktop (I used a VirtualBox VM)
+* Ubuntu 14.04 desktop (I used a VirtualBox VM)
 
 #### Setting up the build environment
 * Ubuntu x86_64
@@ -549,7 +549,7 @@ so all I can say is good luck.
 * [Installing Linux on a RK3066 based device](http://linux.autostatic.com/installing-linux-on-a-rk3066-based-device)
 * [Ubuntu Without CD](https://help.ubuntu.com/community/Installation/FromLinux#Without_CD)
 * [Your own official Linux distro in a SD card (for ARM)](http://hwswbits.blogspot.com/2013/11/your-own-official-linux-distro-in-sd.html)
-* [ODROID C0/C1/C1+/C2 Ubuntu Minimal Image](http://odroid.com/dokuwiki/doku.php?id=en:c1_ubuntu_minimal)
+* [ODROID C1/C1+ Ubuntu Minimal Image](http://odroid.com/dokuwiki/doku.php?id=en:c1_ubuntu_minimal)
 
 ### FreeBSD License
 Copyright (c) Steven P. Goldsmith

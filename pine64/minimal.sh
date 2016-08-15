@@ -1,29 +1,27 @@
 #!/bin/sh
 #
-# Created on Feb 6, 2015
+# Created on Aug 15, 2016
 #
 # @author: sgoldsmith
 #
-# Build minimal Ubuntu 14.04 (Trusty) for ODROID-C1. This script is interactive
-# and must be copied and run as chroot.
-#
-# This work is based on http://odroid.com/dokuwiki/doku.php?id=en:c1_ubuntu_minimal
+# Second stage of debootstrap for PINE64 that will create minimal Ubuntu 16.04
+# (Xenial) root file system. This is an interactive script!
 #
 # Steven P. Goldsmith
 # sgjava@gmail.com
 # 
 # Prerequisites:
 #
-# o image.sh completed and you are at chroot prompt
-# o Copy ./minimal.sh to chroot root dir
-# o cd /root
-# o ./minimal.sh
+# o start.sh completed
 #
 
 # Get start time
 dateformat="+%a %b %-eth %Y %I:%M:%S %p %Z"
 starttime=$(date "$dateformat")
 starttimesec=$(date +%s)
+
+# Start off in root dir
+cd "/root"
 
 # Get current directory
 curdir=$(cd `dirname $0` && pwd)
@@ -39,29 +37,33 @@ log(){
 	echo "\n$timestamp $1" >> $logfile 2>&1
 }
 
-# Will add hardkernel keys and repositories, fix ubuntu respository list and install the basic set of tools for a minimal image
+# debootstrap second stage
+log "debootstrap second stage"
+/debootstrap/debootstrap --second-stage
+
+# Add repos
 log "Configuring repositories"
 cat << EOF > /etc/apt/sources.list
-deb http://ports.ubuntu.com/ubuntu-ports/ trusty main universe restricted
-deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty main universe restricted
+deb http://ports.ubuntu.com/ubuntu-ports/ xenial main universe restricted
+deb-src http://ports.ubuntu.com/ubuntu-ports/ xenial main universe restricted
 
-deb http://ports.ubuntu.com/ubuntu-ports/ trusty-updates main universe restricted
-deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty-updates main universe restricted
+deb http://ports.ubuntu.com/ubuntu-ports/ xenial-updates main universe restricted
+deb-src http://ports.ubuntu.com/ubuntu-ports/ xenial-updates main universe restricted
 
-deb http://ports.ubuntu.com/ubuntu-ports/ trusty-backports main restricted
-deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty-backports main restricted
+deb http://ports.ubuntu.com/ubuntu-ports/ xenial-backports main restricted
+deb-src http://ports.ubuntu.com/ubuntu-ports/ xenial-backports main restricted
 
-deb http://ports.ubuntu.com/ubuntu-ports/ trusty-security main restricted
-deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty-security main restricted
-deb http://ports.ubuntu.com/ubuntu-ports/ trusty-security universe
-deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty-security universe
-deb http://ports.ubuntu.com/ubuntu-ports/ trusty-security multiverse  
-deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty-security multiverse
+deb http://ports.ubuntu.com/ubuntu-ports/ xenial-security main restricted
+deb-src http://ports.ubuntu.com/ubuntu-ports/ xenial-security main restricted
+deb http://ports.ubuntu.com/ubuntu-ports/ xenial-security universe
+deb-src http://ports.ubuntu.com/ubuntu-ports/ xenial-security universe
+deb http://ports.ubuntu.com/ubuntu-ports/ xenial-security multiverse 
+deb-src http://ports.ubuntu.com/ubuntu-ports/ xenial-security multiverse
 
-deb http://ports.ubuntu.com/ubuntu-ports/ trusty multiverse
-deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty multiverse
-deb http://ports.ubuntu.com/ubuntu-ports/ trusty-updates multiverse
-deb-src http://ports.ubuntu.com/ubuntu-ports/ trusty-updates multiverse
+deb http://ports.ubuntu.com/ubuntu-ports/ xenial multiverse
+deb-src http://ports.ubuntu.com/ubuntu-ports/ xenial multiverse
+deb http://ports.ubuntu.com/ubuntu-ports/ xenial-updates multiverse
+deb-src http://ports.ubuntu.com/ubuntu-ports/ xenial-updates multiverse
 EOF
 
 apt-get update >> $logfile 2>&1
@@ -74,15 +76,7 @@ log "Configure timezone"
 dpkg-reconfigure tzdata
 
 log "Installing base packages"
-apt-get -y install sudo software-properties-common u-boot-tools isc-dhcp-client udev netbase ifupdown iproute openssh-server iputils-ping wget net-tools wireless-tools wpasupplicant ntpdate ntp less tzdata console-common nano
-
-log "Add ORDOID keys and update"
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AB19BAC9 >> $logfile 2>&1
-echo "deb http://deb.odroid.in/c1/ trusty main" > /etc/apt/sources.list.d/odroid.list
-echo "deb http://deb.odroid.in/ trusty main" >> /etc/apt/sources.list.d/odroid.list
-apt-get update >> $logfile 2>&1
-apt-get -y install linux-image-c1 bootini >> $logfile 2>&1
-cp /boot/uImage* /media/boot/uImage
+apt-get -y install sudo software-properties-common isc-dhcp-client udev netbase ifupdown iproute openssh-server iputils-ping wget net-tools wireless-tools wpasupplicant ntpdate ntp less tzdata console-common nano
 
 # Setup ethernet as DHCP, create the loopback interface, leave wireless commented out
 log "Configuring networking"
@@ -97,18 +91,7 @@ iface eth0 inet dhcp
 EOF
 
 # Set hostname
-echo "odroidc1" > /etc/hostname
-
-# Enable the Serial console
-log "Enable serial console"
-echo "start on stopped rc or RUNLEVEL=[12345]" > /etc/init/ttyS0.conf
-echo "stop on runlevel [!12345]" >> /etc/init/ttyS0.conf
-echo "respawn" >> /etc/init/ttyS0.conf
-echo "exec /sbin/getty -L 115200 ttyS0 vt102" >> /etc/init/ttyS0.conf
-
-# Making /media/boot mounting at boot time
-log "Making /media/boot mounting at boot time"
-echo "LABEL=boot /media/boot vfat defaults 0 0" >> /etc/fstab
+echo "pine64" > /etc/hostname
 
 # Setting a root password
 log "Change root password"

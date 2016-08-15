@@ -6,7 +6,7 @@
 #
 # First stage of debootstrap for PINE64 that will create minimal Ubuntu 16.04
 # (Xenial) root file system. Once the script completes you are in chroot and
-# must run sh minimal.sh from /root.
+# /root/minimal.sh is executed.
 #
 # Steven P. Goldsmith
 # sgjava@gmail.com
@@ -57,13 +57,15 @@ log "Removing builddir $builddir"
 rm -rf "$builddir"
 mkdir -p "$builddir"
 
+log "Debootstrap first stage to $builddir"
 debootstrap --foreign --arch arm64 xenial "$builddir" >> $logfile 2>&1
 
 # Copy next stage minimal.sh
 cp "minimal.sh" "$builddir/root/."
 
 # Go to chroot
-chroot "$builddir"
+log "chroot $builddir"
+chroot "$builddir" "./root/minimal.sh"
 
 # Get end time
 endtime=$(date "$dateformat")

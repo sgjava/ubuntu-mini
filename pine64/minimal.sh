@@ -38,7 +38,7 @@ log(){
 }
 
 # debootstrap second stage
-log "debootstrap second stage"
+log "Debootstrap second stage"
 /debootstrap/debootstrap --second-stage
 
 # Add repos

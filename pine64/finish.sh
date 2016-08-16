@@ -45,4 +45,8 @@ cp -R "/lib/modules" "$builddir/lib/modules/."
 log "Copy /etc/fstab"
 cp "/etc/fstab" "$builddir/etc/."
 
+# Build archive of root file system 
+log "Build archive of root file system"
+tar -pzcf pine64-xenial-arm64.tar.gz -C "$builddir" .
+
 exit 0

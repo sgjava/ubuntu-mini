@@ -15,6 +15,11 @@
 # o sudo ./finish.sh
 #
 
+# Get start time
+dateformat="+%a %b %-eth %Y %I:%M:%S %p %Z"
+starttime=$(date "$dateformat")
+starttimesec=$(date +%s)
+
 # Get current directory
 curdir=$(cd `dirname $0` && pwd)
 
@@ -39,7 +44,7 @@ cp -R "/boot" "$builddir/boot/."
 # Copy /lib/modules 
 log "Copy /lib/modules"
 mkdir -p "$builddir/lib/modules"
-cp -R "/lib/modules" "$builddir/lib/modules/."
+cp -R "/lib/modules" "$builddir/lib/."
 
 # Copy /etc/fstab 
 log "Copy /etc/fstab"
@@ -49,4 +54,16 @@ cp "/etc/fstab" "$builddir/etc/."
 log "Build archive of root file system"
 tar -pzcf pine64-xenial-arm64.tar.gz -C "$builddir" .
 
+# Get end time
+endtime=$(date "$dateformat")
+endtimesec=$(date +%s)
+
+# Show elapse time
+elapsedtimesec=$(expr $endtimesec - $starttimesec)
+ds=$((elapsedtimesec % 60))
+dm=$(((elapsedtimesec / 60) % 60))
+dh=$((elapsedtimesec / 3600))
+displaytime=$(printf "%02d:%02d:%02d" $dh $dm $ds)
+
+log "Elapsed time: $displaytime\n"
 exit 0

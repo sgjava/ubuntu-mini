@@ -34,15 +34,15 @@ log(){
 
 # Copy /boot 
 log "Copy /boot"
-cp -R "/boot/*" "$builddir/boot/."
+cp -R "/boot" "$builddir/boot/."
 
 # Copy /lib/modules 
 log "Copy /lib/modules"
 mkdir -p "$builddir/lib/modules"
-cp -R "/lib/modules/*" "$builddir/lib/modules/."
+cp -R "/lib/modules" "$builddir/lib/modules/."
 
 # Copy /etc/fstab 
 log "Copy /etc/fstab"
-cp -R "/etc/fstab" "$builddir/etc/."
+cp "/etc/fstab" "$builddir/etc/."
 
 exit 0

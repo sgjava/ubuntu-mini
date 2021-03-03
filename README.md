@@ -133,7 +133,7 @@ included.
     Enter
     Emter
     w</code></pre>
-    * `mkfs.ext4 -L linuxroot /dev/sdb1`
+    * `mkfs.ext4 -O ^metadata_csum -L linuxroot /dev/sdb1`
 3. Mount partition
     * `mkdir /mnt/tmp`
     * `mount /dev/sdb1 /mnt/tmp`
@@ -217,7 +217,7 @@ included.
 
 ### Flash kernel
 * Prepare SD
-    * `sudo mkfs.ext4 -F -L linuxroot /dev/sdg` (assumes SD device is /dev/sdg, always check first)
+    * `sudo mkfs.ext4 -F -O ^metadata_csum -L linuxroot /dev/sdg` (assumes SD device is /dev/sdg, always check first)
     * `sudo tar -pzxf linuxroot.tar.gz -C /media/linuxroot`
 * Pick kernel (or build/download one)
     * [RK3066](https://github.com/sgjava/ubuntu-mini/tree/master/rk3066)
